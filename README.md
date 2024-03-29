@@ -1,3 +1,3 @@
-# Generic
+# Nwge Documentation
 
-Generic template for a project repository. 
+These are the sources for the Nwge documentation.
