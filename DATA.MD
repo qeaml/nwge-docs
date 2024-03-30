@@ -67,7 +67,7 @@ blocking is determined by the `LoadBlocking` engine option:
 
 For the `Auto` setting, the engine checks whether we have called the main
 state's `init()` method yet. If the `init()` method hasn't been called yet, we
-perform a blocking load. We perfom non-blocking loads otherwise. This is the
+perform a blocking load. We perform non-blocking loads otherwise. This is the
 default setting.
 
 ## Load priority
@@ -131,7 +131,7 @@ If we assume that nwge's home directory is `%APPDATA%\nwge`, then:
 As we can conclude from above, a store may or may not have a name. Stores cannot
 be loaded from a path directly.
 
-You can see the exact paths the engine uses with the `e.pathes` console command.
+You can see the exact paths the engine uses with the `e.paths` console command.
 
 ## Data types
 

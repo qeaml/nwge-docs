@@ -40,7 +40,7 @@ the engine will find your bundle. There are two ways to do this:
     Here, you will use the `data::Bundle` constructor accepting a name. When you
     try to load data from such a bundle, the engine will look through the bundle
     lookup directories you specified to find a bundle with that name. This is
-    preferred when you know the name of the bundle and compile-time.
+    preferred when you know the name of the bundle at compile-time.
 
 2. Use a path directly.
 
@@ -56,7 +56,7 @@ Use the `nwgebndl` tool to make and manage bundle files. You can:
 * Create a bundle:
 
     ```console
-    $ nwgebndl create <input directory> <output bundle>
+    nwgebndl create <input directory> <output bundle>
     ```
 
     Note that bundle files _do not support directories_. If there is a
@@ -65,23 +65,23 @@ Use the `nwgebndl` tool to make and manage bundle files. You can:
 * List bundle contents:
 
     ```console
-    $ nwgebndl list <bundle>
+    nwgebndl list <bundle>
     ```
 
 * List bundle contents as CSV:
 
     ```console
-    $ nwgebndl list <bundle> -csv
+    nwgebndl list <bundle> -csv
     ```
 
 * Extract all bundle contents:
 
   ```console
-  $ nwgebndl extract <input bundle> <output directory>
+  nwgebndl extract <input bundle> <output directory>
   ```
 
 * Extract specific files from bundle:
 
   ```console
-  $ nwgebndl extract <input bundle> <output directory> REGEX\.PATTERN
+  nwgebndl extract <input bundle> <output directory> REGEX\.PATTERN
   ```
