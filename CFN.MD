@@ -66,10 +66,12 @@ The characters are all stored one after the other, in one line, evenly spaced
 apart:
 
 <center>
-
-![Example Calibri Texture Atlas](CALIBRI.BMP) <br/>
-*A snippet of a 11px texture atlas generated from Calibri, scaled 400%*
-
+  <figure>
+    <img src="CALIBRI.BMP" alt="Font texture atlas">
+    <figcaption>
+      A snippet of a 11px texture atlas generated from Calibri, scaled 400%
+    </figcaption>
+  </figure>
 </center>
 
 Although this adds extra image data to be stored, it allows us to completely
