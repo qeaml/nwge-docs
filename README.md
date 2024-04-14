@@ -1,7 +1,9 @@
 # Nwge Documentation
 
-This site contains the documentation for the nwge engine. It covers topics such
-as:
+If you're new to this whole "nwge" thing, the [Introduction](INTRO) page is a
+good start.
+
+You can also read more on the following topics:
 
 * [Bundle Files](BUNDLE)
 * [Font Rendering](CFN)

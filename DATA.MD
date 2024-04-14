@@ -7,13 +7,15 @@ It is recommended you get a grasp on [Engine Objects][objects] before reading.
 
 ## Table of Contents
 
-1. [Queues](#queues)
-2. [When is data loaded?](#when-is-data-loaded)
-3. [Blocking loads](#blocking-loads)
-4. [Load priority](#load-priority)
-5. [Bundles](#bundles)
-6. [Data stores](#data-stores)
-7. [Data types](#data-types)
+- [Nwge Data System](#nwge-data-system)
+  - [Table of Contents](#table-of-contents)
+  - [Queues](#queues)
+  - [When is data loaded?](#when-is-data-loaded)
+  - [Blocking loads](#blocking-loads)
+  - [Load priority](#load-priority)
+  - [Bundles](#bundles)
+  - [Data stores](#data-stores)
+  - [Data types](#data-types)
 
 ## Queues
 
@@ -89,9 +91,12 @@ Bundles are used to store multiple files in one file. This allows the engine to:
 
 1. Skip the filesystem entirely
 2. Keep all the file contents in memory
+3. Ensure consistent filename handling on different platforms & filesystems.
 
 Both of these improve data loading performance. (especially if you have a
 slow HDD!)
+
+You can learn more about bundle files in the [bundle file docs](BUNDLE).
 
 The app-facing Bundle interface is based around engine objects. That means the
 bundles can be copied and moved freely, as they are internally reference
