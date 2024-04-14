@@ -13,3 +13,4 @@ You can also read more on the following topics:
   * [Nwge Bundle Binary Format Specification, Version 1](BUNDLEv1)
 * [Engine Objects](ENGINEOBJECTS)
 * [Memory Allocation](MEMORY)
+* [Nwge & Shaders](SHADER)
