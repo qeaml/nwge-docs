@@ -5,8 +5,10 @@ manual memory management.
 
 ## Table of Contents
 
-1. [Available Allocators](#available-allocators)
-2. [Scratch-space](#scratch-space)
+- [Memory Allocation](#memory-allocation)
+  - [Table of Contents](#table-of-contents)
+  - [Available Allocators](#available-allocators)
+  - [Scratch-space](#scratch-space)
 
 ## Available Allocators
 
@@ -188,30 +190,39 @@ Below is an example, taken straight from nwge's JSON encoder:
 ```c++
 using Buf = ScratchSlice<char>; // slice stored in scratch-space
 
-static void encodeNumberTo(Buf &out, double number) {
-  double integer;
-  double fraction = std::modf(number, &integer);
+static void encodeNumberTo(Buf &out, f64 number) {
+  // the integer value of the number
+  f64 integer;
+  // the fractional value of the number
+  f64 fraction = std::modf(number, &integer);
 
   usize bufSize;
-  char *buf;
+  // buffer storing the final encoded string
+  CStr buf;
+  // fraction is 0 - the number is an integer
   if(fraction == 0.0) {
-    int size = std::snprintf(nullptr, 0, "%d", int(integer));
+    // calculate buffer size
+    s32 size = std::snprintf(nullptr, 0, "%d", s32(integer));
+    // in case of errors, exit
     if(size <= 0) {
       return;
     }
     bufSize = usize(size) + 1;
-    buf = reinterpret_cast<char*>(nwgeScratchAlloc(bufSize));
-    std::snprintf(buf, bufSize, "%d", int(integer));
-  } else {
-    int size = std::snprintf(nullptr, 0, "%f", number);
+    buf = reinterpret_cast<CStr>(nwgeScratchAlloc(bufSize));
+    // format as integer
+    std::snprintf(buf, bufSize, "%d", s32(integer));
+  } else /* number has fractional value */ {
+    s32 size = std::snprintf(nullptr, 0, "%f", number);
     if(size <= 0) {
       return;
     }
     bufSize = usize(size) + 1;
-    buf = reinterpret_cast<char*>(nwgeScratchAlloc(bufSize));
+    buf = reinterpret_cast<CStr>(nwgeScratchAlloc(bufSize));
+    // format as float
     std::snprintf(buf, bufSize, "%f", number);
   }
 
+  // append to output buffer
   out.append(ArrayView<const char>{buf, bufSize - 1});
   // Because both buf and out are allocated in scratch-space, cache locality
   // for the copy in append is improved.
