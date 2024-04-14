@@ -1,7 +1,33 @@
 # Introduction to nwge
 
-*Nwge* (for **n**e**w** **g**ame **e**ngine) is a small, light and fast game
+Nwge (for **n**e**w** **g**ame **e**ngine) is a small, light and fast game
 engine written in C++.
+
+It's hard to call it an engine, actually. It's something of a middleground
+between a full-blown game engine and a simpler development framework, such as
+SDL or Raylib.
+
+## Table of Contents
+
+* [Introduction to nwge](#introduction-to-nwge)
+  * [Table of Contents](#table-of-contents)
+  * [What does it do?](#what-does-it-do)
+    * [Rendering](#rendering)
+    * [Text rendering](#text-rendering)
+    * [Data loading](#data-loading)
+    * [State management](#state-management)
+    * [Console](#console)
+    * [Memory allocation](#memory-allocation)
+    * [Profiling](#profiling)
+    * [Configuration](#configuration)
+  * [What doesn't it do?](#what-doesnt-it-do)
+    * [Audio](#audio)
+    * [3D](#3d)
+    * [PBR](#pbr)
+    * [Automatic rendering optimizations](#automatic-rendering-optimizations)
+    * [Scripting](#scripting)
+  * [Versions of nwge](#versions-of-nwge)
+  * [Nwge SDK](#nwge-sdk)
 
 ## What does it do?
 
@@ -104,4 +130,65 @@ restriced by the developer.
 
 For more information, see the [configuration docs](CONFIG).
 
+## What doesn't it do?
+
+### Audio
+
+Nwge completely lacks any kind of audio system. This is, however, planned to be
+implemented in the forseeable future. If you're wondering, the audio system will
+likely rely on [OpenAL][OpenAL].
+
+### 3D
+
+Although nwge provides decent support for 2D, it lacks any built-in support for
+3D rendering. It is possible to render 3D geometry by wrangling with matrix
+stacks and projection matrices yourself, but support for 3D is planned to also
+be implemented in the engine in much the same way as 3D rendering.
+
+### PBR
+
+On the topic of "rendering nwge doesn't natively support", is Physically-Based
+Rendering. Alike 3D, nwge doesn't do it out-of-the-box, but it is certainly
+possible to achieve via custom shaders. Remember, even though you're using
+nwge's rendering primitives, you can still access the most basic OpenGL
+functionalities.
+
+### Automatic rendering optimizations
+
+Currently, the engine perfoms no optimizations on the draw commands you execute.
+There is definitely possibility to improve repeat invocations of nwge's
+primitive rendering functions (such as `rect()`) via automatic instancing, the
+engine simply doesn't do anything and just forwards all draw commands to OpenGL
+directly.
+
+### Scripting
+
+Earlier in development, nwge *did* have a scripting system. It, however, was not
+well thought out and not very well implemented either. It was removed from nwge
+and a new scripting system is due to be designed and implemented. Though, I
+wouldn't hold my breath waiting for it.
+
+## Versions of nwge
+
+As projects using nwge get released, multiple different versions of nwge will
+begin floating around. The Windows DLLs of nwge contain version information,
+which is also avaiable via the `e.ver` console command. That command also prints
+out information about the libraries nwge uses as well as the compiler & build
+system used to compile nwge.
+
+![Screenshot of the `e.ver` command](img/e.ver.png)
+
+*Example of the `e.ver` command in action.*
+
+Currently (April 2024), nwge is still under rapid development, so it is unlikely
+anything using it will be released anytime soon.
+
+## Nwge SDK
+
+The nwge SDK, sometimes referred to as "NWDK", is the set of headers and library
+files used to develop apps with the nwge engine. Currently, a limited amout of
+people have access to it as -- as I mentioned above -- nwge is still under rapid
+development.
+
 [mimalloc]: https://github.com/microsoft/mimalloc
+[OpenAL]: https://openal.org
