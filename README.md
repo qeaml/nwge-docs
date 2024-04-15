@@ -12,5 +12,7 @@ You can also read more on the following topics:
 * [Data System](DATA)
   * [Nwge Bundle Binary Format Specification, Version 1](BUNDLEv1)
 * [Engine Objects](ENGINEOBJECTS)
+* [`libnwge_cfn`](libnwge_cfn)
 * [Memory Allocation](MEMORY)
+* [`nwgecfn` (the CLI tool)](nwgecfn)
 * [Nwge & Shaders](SHADER)

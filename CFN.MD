@@ -83,10 +83,4 @@ spaced, but they may not be evenly sized.
 
 ## Compilation
 
-The `NwgeCFN` tool from the nwge SDK allows you to take any TrueType font and
-compile it into a NwgeCFN font. When using smaller resolutions, this offers a
-massive save in storage space. Additionally, this takes the process of "baking"
-a texture atlas away from runtime and doing it at compile time instead.
-
-You can look at the `cfn.hexpat` file from the nwge SDK to get a good grasp on
-how the binary data looks.
+See the [`libnwge_cfn`](libnwge_cfn) and [`nwgecfn`](nwgecfn) documentation.
