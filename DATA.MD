@@ -3,19 +3,19 @@
 This is a detailed overview of how nwge's data system works. From the core data
 loading loop to bundle and data store management.
 
-It is recommended you get a grasp on [Engine Objects][objects] before reading.
+It is recommended you get a grasp on [Engine Objects](OBJECTS) before reading.
 
 ## Table of Contents
 
-- [Nwge Data System](#nwge-data-system)
-  - [Table of Contents](#table-of-contents)
-  - [Queues](#queues)
-  - [When is data loaded?](#when-is-data-loaded)
-  - [Blocking loads](#blocking-loads)
-  - [Load priority](#load-priority)
-  - [Bundles](#bundles)
-  - [Data stores](#data-stores)
-  - [Data types](#data-types)
+* [Nwge Data System](#nwge-data-system)
+  * [Table of Contents](#table-of-contents)
+  * [Queues](#queues)
+  * [When is data loaded?](#when-is-data-loaded)
+  * [Blocking loads](#blocking-loads)
+  * [Load priority](#load-priority)
+  * [Bundles](#bundles)
+  * [Data stores](#data-stores)
+  * [Data types](#data-types)
 
 ## Queues
 
@@ -44,7 +44,6 @@ desired output object.
 
 ## When is data loaded?
 
-> [!IMPORTANT]
 > Although the term load/loading is used, this also refers to saving data to a
 > [store](#data-stores).
 
@@ -118,20 +117,24 @@ For a more low-level interface over bundle files, see the `nwge_bndl` library.
 Data stores are used to read and write app-specific data. For save files or
 configuration, for example. Data stores are engine objects in much the same way
 as bundles. Each data store corresponds 1:1 to a directory on-disk inside nwge's
-store directory. Below is an explanation of how different directories are found:
+store directory. Data stores may be **shared**, which means multiple different
+apps have access to the same exact data store. Unlike regular data stores,
+shared data stores *must* have a name. Below is an explanation of how different
+directories are found:
 
 If we assume that nwge's home directory is `%APPDATA%\nwge`, then:
 
 * The **root store directory** is `%APPDATA%\nwge\store`.
+* The **shared store directory** is `%APPDATA%\nwge\store`.
 * The **app's store directory** is `%APPDATA%\nwge\store\<app name>`.
 * A **named store's directory** is `%APPDATA%\nwge\store\<app name>\<store
   name>`.
 * An **unnamed store's directory** is the same as the **app's store directory**.
 
-> [!TIP]
 > `%APPDATA%\nwge` is the default **nwge home directory** on Windows. On Linux,
-> the default home directory is `~/.nwge` instead. You may set your own home
-> directory by using the `NWGE_HOME` environment variable on either platform.
+> the default home directory is `~/.local/share/nwge` instead. You may set your
+> own home directory by using the `NWGE_HOME` environment variable on either
+> platform.
 
 As we can conclude from above, a store may or may not have a name. Stores cannot
 be loaded from a path directly.
@@ -171,5 +174,3 @@ bool MyState::preload() {
   mBundle.nqCustom("SOME.SPRITE", mSpriteSheet);
 }
 ```
-
-[objects]: OBJECTS.MD
