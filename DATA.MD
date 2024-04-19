@@ -125,7 +125,7 @@ directories are found:
 If we assume that nwge's home directory is `%APPDATA%\nwge`, then:
 
 * The **root store directory** is `%APPDATA%\nwge\store`.
-* The **shared store directory** is `%APPDATA%\nwge\store`.
+* The **shared store directory** is `%APPDATA%\nwge\shared-store`.
 * The **app's store directory** is `%APPDATA%\nwge\store\<app name>`.
 * A **named store's directory** is `%APPDATA%\nwge\store\<app name>\<store
   name>`.
