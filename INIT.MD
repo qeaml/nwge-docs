@@ -56,7 +56,7 @@ that process.
 ## Initialization
 
 The rest of the initialization is performed from your call to `startPtr`
-(`state` is just a wrapper over `startPtr`). This is where initialization that
+(`start` is just a wrapper over `startPtr`). This is where initialization that
 needs the [developer configuration][dev-cfg] is performed.
 
 Pre-initialization consists of the following:
