@@ -14,6 +14,7 @@ You can also read more on the following topics:
 * [Engine Objects](ENGINEOBJECTS)
 * [Engine Journal](JOURNAL)
 * [`libnwge_cfn`](libnwge_cfn)
+* [The `Maybe<T>` type](MAYBE)
 * [Memory Allocation](MEMORY)
 * [`nwgecfn` (the CLI tool)](nwgecfn)
 * [Nwge & Shaders](SHADER)
