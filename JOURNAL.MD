@@ -8,9 +8,12 @@ journal to a file. You can then look through this file to troubleshoot yourself
 or you can send it off to the app or engine developer for investigation. You can
 view the journal at any moment by using the `e.journal` console command.
 
-![Journal Window](img/journal.jpg)
-
-*The in-engine journal window.*
+<figure>
+  <img src="img/journal.png" alt="Screenshot of the Journal window" />
+  <figcaption>
+    The in-engine journal window.
+  </figcaption>
+</figure>
 
 All of the journal entries are broken up into pages. These entries are then
 displayed in a table:
@@ -27,33 +30,41 @@ displayed in a table:
 The **Save journal to disk** button allows you to save the journal into nwge's
 data directory as a simple text file.
 
-![Journal saved information box](img/journalSaved.jpg)
-
-*The message displaying where the file is saved.*
+<figure>
+  <img src="img/journalSaved.jpg" alt="Screenshot of the Journal info box." />
+  <figcaption>
+    The message displaying where the engine journal file is saved.
+  </figcaption>
+</figure>
 
 This file contains the journal in plain text, which should make it easily
 readable for post-cash debugging.
 
 ```log
-0.000001  DEBUG/Object  : Object created
+0.000002  DEBUG/Object  : Object created
 Type: 0x1
 Num: 0x0000
 
-0.000487  DEBUG/State   : Pre-initializing engine
-Version: 0.1.3 (build #11845: 16 Apr 2024 at 20:42)
+0.000083  DEBUG/State   : Pre-initializing engine
+Version: 0.6 (build #11946: 27 Apr 2024 at 13:38)
 
-0.000866  DEBUG/Misc.   : PathMan initialized #1
-Root: D:\nwge\data
-Store: D:\nwge\data\store\LOST+FOUND
-Global Config: D:\nwge\data\config.json
+0.000201  DEBUG/Misc.   : PathMan initialized #1
+Root: /home/qeaml/.local/share/nwge
+Store: /home/qeaml/.local/share/nwge/store/LOST+FOUND
+Global Config: /home/qeaml/.local/share/nwge/config.json
 App Config: 
-GUI Config: D:\nwge\data\imgui.ini
+GUI Config: /home/qeaml/.local/share/nwge/imgui.ini
 
 
-0.189813  DEBUG/Misc.   : SDL Initialized
-Headers version: 2.30.1
-Binaries version: 2.30.1
+0.179951  DEBUG/Misc.   : SDL Initialized
+Headers version: 2.30.2
+Binaries version: 2.30.2
 
-0.189833  DEBUG/Misc.   : SDL_image Initialized
+0.179973  DEBUG/Misc.   : SDL_image Initialized
 Binaries version: 2.8.2
+
+0.180061  DEBUG/Misc.   : SDL_ttf Initialized
+Headers version: 2.22.0
+FreeType version: 2.13.2
+HarfBuzz version: 8.4.0
 ```

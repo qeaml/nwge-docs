@@ -3,7 +3,7 @@
 Nwge (for **n**e**w** **g**ame **e**ngine) is a small, light and fast game
 engine written in C++.
 
-It's hard to call it an engine, actually. It's something of a middleground
+It's hard to call it an engine, actually. It's something of a middle ground
 between a full-blown game engine and a simpler development framework, such as
 SDL or Raylib.
 
@@ -44,9 +44,13 @@ currently no exhaustive documentation on this.
 When it comes to text rendering, nwge provides an efficient and idiosyncratic
 font renderer.
 
-![Screenshot of the `nwgecfn` command](img/nwgecfn.png)
-
-*The `nwgecfn` command is used to "compile" TrueType fonts into NwgeCFN fonts.*
+<figure>
+  <img src="img/nwgecfn.png" alt="Screenshot of the nwgecfn command" />
+  <figcaption>
+    The <code>nwgecfn</code> command is used to "compile" TrueType fonts into
+    NwgeCFN fonts.
+  </figcaption>
+</figure>
 
 For more information, see the [NwgeCFN docs](CFN).
 
@@ -58,7 +62,7 @@ advantages:
 
 * Bypass the filesystem -- fast!
 * Load the entire bundle into memory -- fast!
-* Consistent filename handling accross platforms.
+* Consistent filename handling across platforms.
 
 Additionally, it provides extra safety nets for how data is loaded, when it is
 loaded and how data loading is communicated to the user.
@@ -66,9 +70,13 @@ loaded and how data loading is communicated to the user.
 There are also data stores, which allow you to store things like save files,
 configuration files and other app-specific data.
 
-![Screenshot of the `nwgebndl` command](img/nwgebndl.png)
-
-*The `nwgebndl` command is used to create, extract and view nwge bundle files.*
+<figure>
+  <img src="img/nwgebndl.png" alt="Screenshot of the nwgebndl command." />
+  <figcaption>
+    The <code>nwgebndl</code> command is used to create, extract and view nwge
+    bundle files.
+  </figcaption>
+</figure>
 
 For more information, see the [data system docs](DATA#bundles).
 
@@ -93,9 +101,12 @@ output more low-level information to the user. The console is the #1 way for the
 user to inspect and manage app state. Apps may register a number of commands for
 testing or debugging (although nothing can beat an actual debugger!).
 
-![Console Screenshot](img/console.png)
-
-*Console with some example commands.*
+<figure>
+  <img src="img/console.png" alt="Console Screenshot" />
+  <figcaption>
+    Console with some example commands.
+  </figcaption>
+</figure>
 
 For more information, see the [console docs](CONSOLE).
 
@@ -115,9 +126,12 @@ For more information, see the [memory allocation docs](MEMORY).
 When it comes to profiling, nwge provides a minimalistic profiler allowing you
 to see how much time the engine is spending on certain parts of the main loop.
 
-![Profiler Screenshot](img/profiler.png)
-
-*The profiler displaying frame timings & memory usage.*
+<figure>
+  <img src="img/profiler.png" alt="Profiler Screenshot" />
+  <figcaption>
+    The profiler displaying frame timings and memory usage.
+  </figcaption>
+</figure>
 
 There is currently no exhaustive information documentation on this.
 
@@ -126,7 +140,7 @@ There is currently no exhaustive information documentation on this.
 When it comes to configuration, nwge is rather configurable, both for the app
 developer and the end user. The developer may choose to restrict the user from
 certain behaviors, while the user's configuration is always respected when not
-restriced by the developer.
+restricted by the developer.
 
 For more information, see the [configuration docs](CONFIG).
 
@@ -155,7 +169,7 @@ functionalities.
 
 ### Automatic rendering optimizations
 
-Currently, the engine perfoms no optimizations on the draw commands you execute.
+Currently, the engine performs no optimizations on the draw commands you execute.
 There is definitely possibility to improve repeat invocations of nwge's
 primitive rendering functions (such as `rect()`) via automatic instancing, the
 engine simply doesn't do anything and just forwards all draw commands to OpenGL
@@ -172,13 +186,16 @@ wouldn't hold my breath waiting for it.
 
 As projects using nwge get released, multiple different versions of nwge will
 begin floating around. The Windows DLLs of nwge contain version information,
-which is also avaiable via the `e.ver` console command. That command also prints
+which is also available via the `e.ver` console command. That command also prints
 out information about the libraries nwge uses as well as the compiler & build
 system used to compile nwge.
 
-![Screenshot of the `e.ver` command](img/e.ver.png)
-
-*Example of the `e.ver` command in action.*
+<figure>
+  <img src="img/e.ver.png" alt="Screenshot of the e.ver command" />
+  <figcaption>
+    Example of the <code>e.ver</code> command in action.
+  </figcaption>
+</figure>
 
 Currently (April 2024), nwge is still under rapid development, so it is unlikely
 anything using it will be released anytime soon.
@@ -186,7 +203,7 @@ anything using it will be released anytime soon.
 ## Nwge SDK
 
 The nwge SDK, sometimes referred to as "NWDK", is the set of headers and library
-files used to develop apps with the nwge engine. Currently, a limited amout of
+files used to develop apps with the nwge engine. Currently, a limited amount of
 people have access to it as -- as I mentioned above -- nwge is still under rapid
 development.
 
