@@ -9,6 +9,23 @@ engine journal instead. The journal is specifically designed to be as verbose as
 possible without having the app's output be lost in the sea of engine
 information.
 
+## Command Syntax
+
+In earlier versions of nwge, command syntax was as simple as "split on spaces".
+This has since been improved to support other whitespace as well as arguments
+containing spaces.
+
+Using the [`e.bind`](#ebind) command as an example:
+
+```console
+> e.bind fwd
+Key binding `fwd` is bound to w.
+> e.bind "stop sprint"
+Key binding `stop sprint` is bound to backspace.
+> 	e.bind	"stop sprint"	tab
+Key binding `stop sprint` bound to `tab`.
+```
+
 ## App Commands
 
 Your app may register a console command, which is useful for debugging release
@@ -50,3 +67,133 @@ You may also programmatically clear the console via the `clear()` function.
 You may use the `registerCommand(StringView, CmdCallback)` function to register
 a custom command. You can view all registered commands via the `c.list` console
 command.
+
+## Commands
+
+Below is an explanation of every built-in console command.
+
+### Engine commands (`e.*`)
+
+#### `e.alloc`
+
+Prints information about the allocator. This information is cut off due to the
+console limiting line length to 80 characters.
+
+#### `e.bind`
+
+1. View a key binding: `e.bind <key binding>`
+2. Change a key binding: `e.bind <key binding> <key name>`
+3. View what a key is bound to: `e.bind <key name>`
+
+Note that standard command syntax applies here: in case a key binding has a
+space in its name, simply quote the name:
+
+```console
+e.bind "some key binding" space
+```
+
+#### `e.bindList`
+
+View a list of all current key bindings.
+
+#### `e.docs`
+
+Open the [nwge documentation] in your web browser.
+
+#### `e.help`
+
+Display a help message listing all engine commands.
+
+#### `e.journal`
+
+Open the Journal window. See [Journal]. You can also press <kbd>F12</kbd> to
+dump the journal if the console is not available.
+
+#### `e.objects`
+
+View the current engine object counters. See [Engine Objects].
+
+#### `e.path`
+
+View the current engine paths.
+
+#### `e.profiler`
+
+Open the Profiler window.
+
+#### `e.quit`
+
+Quit the app. This is equivalent to closing the window. This can also be
+achieved by pressing <kbd>Shift</kbd>+<kbd>F12</kbd> if the console is not
+available.
+
+#### `e.scratch`
+
+View scratch-space usage statistics. See [Scratch-space].
+
+#### `e.segFault`
+
+Intentionally access invalid memory.
+
+#### `e.testAssert`
+
+Intentionally cause an assertion failure. This can also be achieved by pressing
+<kbd>Ctrl</kbd>+<kbd>F12</kbd> if the console is not available.
+
+#### `e.timeScale`
+
+Usage: `e.timeScale <scale in range 0.0-1.0>`
+
+Change the time scale.
+
+#### `e.ver`
+
+View engine version.
+
+[nwge documentation]: README
+[Journal]: JOURNAL
+[Engine Objects]: ENGINEOBJECTS
+[Scratch-space]: MEMORY#scratch-space
+
+### Renderer commands (`r.*`)
+
+#### `r.fps`
+
+1. Set the FPS limit automatically based on display's refresh rate: `r.fps auto`.
+2. Set the FPS limit manually: `r.fps <max FPS> <low FPS>`
+
+    Where `low FPS` is the FPS limit used when the window is not in focus, e.g.
+    minimized.
+
+#### `r.fullscreen`
+
+Toggle fullscreen mode. This can also be achieved by pressing <kbd>F11</kbd>.
+
+#### `r.info`
+
+View information about the renderer and renderer object counters.
+
+#### `r.wireframe`
+
+Toggle wireframe mode.
+
+#### `r.windowSize`
+
+1. View current window size: `r.windowSize`
+2. Change window size: `r.windowSize <width> <height>`
+
+    Only works if the window is resizable and not borderless.
+
+### Console management commands (`c.*`)
+
+#### `c.clear`
+
+Clear the console.
+
+#### `c.list`
+
+View console commands registered by the app.
+
+#### `c.echo`
+
+Print whatever arguments are provided to the console.
