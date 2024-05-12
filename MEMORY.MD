@@ -113,12 +113,9 @@ Here's how to avoid passing bad pointers to nwge:
    }
    ```
 
-Once you are in your app, press <kbd>F2</kbd> to bring up the engine console and
-use the `e.alloc` command to see what nwge's allocator is up to.
-
 A pattern to note is to use a static `create` method on your `State` subclass
 which will allocate the memory for you. Below is an example of how one could
-switch between the two approaches with a preprocessor macro macro.
+switch between the two approaches with a preprocessor macro.
 
 ```c++
 /* --  MyState implementation file  -- */

@@ -74,11 +74,6 @@ Below is an explanation of every built-in console command.
 
 ### Engine commands (`e.*`)
 
-#### `e.alloc`
-
-Prints information about the allocator. This information is cut off due to the
-console limiting line length to 80 characters.
-
 #### `e.bind`
 
 1. View a key binding: `e.bind <key binding>`
