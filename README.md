@@ -10,7 +10,6 @@ You can also read more on the following topics:
 * [Configuration](CONFIG)
 * [Console](CONSOLE)
 * [Data System](DATA)
-  * [Nwge Bundle Binary Format Specification, Version 1](BUNDLEv1)
 * [Engine Objects](ENGINEOBJECTS)
 * [Engine Initialization](INIT)
 * [Engine Journal](JOURNAL)

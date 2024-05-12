@@ -67,7 +67,7 @@ apart:
 
 <center>
   <figure>
-    <img src="CALIBRI.BMP" alt="Font texture atlas">
+    <img src="img/CALIBRI.BMP" alt="Font texture atlas">
     <figcaption>
       A snippet of a 11px texture atlas generated from Calibri, scaled 400%
     </figcaption>

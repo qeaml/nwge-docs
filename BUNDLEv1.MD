@@ -100,7 +100,7 @@ files.
 ## Example File
 
 Below is a commented hex dump of the
-[BUNDLEv1EXAMPLE.BNDL](BUNDLEv1EXAMPLE.BNDL) file.
+[`BUNDLEv1EXAMPLE.BNDL`](bin/BUNDLEv1EXAMPLE.BNDL) file.
 
 ```c
 /* Magic at offset 0 */
