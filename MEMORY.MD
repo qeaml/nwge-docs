@@ -50,13 +50,6 @@ int main(int argc, char **argv) {
 The pointer is later `free`d by the engine. Here's our problem: If one allocator
 creates a pointer, another allocator cannot free it, causing a crash.
 
-On Windows, your app is likely using UCRT's allocator, whereas nwge uses
-[mimalloc][mimalloc] internally. This is the perfect setup for this crash to
-occur.
-
-Nwge checks that the pointer you pass was allocated by the engine's allocator.
-That is still a crash, but it's also likely how you ended up here.
-
 Here's how to avoid passing bad pointers to nwge:
 
 1. Allocate everything with `nwgeAlloc` manually.
@@ -225,5 +218,3 @@ static void encodeNumberTo(Buf &out, f64 number) {
   // for the copy in append is improved.
 }
 ```
-
-[mimalloc]: https://github.com/microsoft/mimalloc

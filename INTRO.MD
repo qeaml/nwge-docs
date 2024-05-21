@@ -112,12 +112,9 @@ For more information, see the [console docs](CONSOLE).
 
 ### Memory allocation
 
-When it comes to memory allocation, nwge uses [`mimalloc`][mimalloc] as it's
-allocator. It is accessible via the `nwgeAlloc()`, `nwgeCalloc()` and
-`nwgeRealloc()` functions as well as their variations. Additionally, nwge
-provides a scratch-space, which can be used as temporary storage for various
-calculations. The scratch-space is a memory arena which does not require you
-free memory you allocated from but, it is very limited in size (5MB total!).
+Nwge provides a scratch-space, which can be used as temporary storage for
+various calculations. The scratch-space is a memory arena which does not require
+you free memory you allocated from but, it is very limited in size (5MB total!).
 
 For more information, see the [memory allocation docs](MEMORY).
 
@@ -207,5 +204,4 @@ files used to develop apps with the nwge engine. Currently, a limited amount of
 people have access to it as -- as I mentioned above -- nwge is still under rapid
 development.
 
-[mimalloc]: https://github.com/microsoft/mimalloc
 [OpenAL]: https://openal.org

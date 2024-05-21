@@ -34,9 +34,8 @@ will then contain an array of 16 bytes where the object will be stored, *if the
 `Maybe` contains an object.* In case the `Maybe` does not contain an object,
 that memory will simply stay uninitialized. This allows us to store objects that
 are not otherwise default constructible without using a pointer. Not using a
-pointer means there is no necessity to ever allocate or de-allocate memory. Even
-with a performant allocator, like mimalloc, it is always fastest to just not
-allocate any memory in the first place.
+pointer means there is no necessity to ever allocate or de-allocate memory. It
+is always fastest to just not allocate any memory in the first place.
 
 ## Outside C++
 
