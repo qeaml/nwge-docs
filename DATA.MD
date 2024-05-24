@@ -155,7 +155,7 @@ bool load(nwge::data::RW &file);
 
 This method must load the data from the file into the object it was called on.
 If the data is loaded successfully, return `true`. If an error occurs while
-loading the data, use the `nwge::errorBox` function to report it and return
+loading the data, use the `nwge::dialog::error` function to report it and return
 `false` to let the engine handle the failure.
 
 Alternatively, the engine provides the ability to simply pass a function to call
