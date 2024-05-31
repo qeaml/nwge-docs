@@ -5,6 +5,7 @@ good start.
 
 You can also read more on the following topics:
 
+* [Apps using nwge](APPS)
 * [Bundle Files](BUNDLE)
 * [Font Rendering](CFN)
 * [Configuration](CONFIG)
