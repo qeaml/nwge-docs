@@ -33,11 +33,6 @@ builds. You should use your debugger instead of console commands while
 developing your app, however console commands may be necessary to do some
 initial research into an issue in a release build.
 
-Currently, custom console commands are simple function pointers, meaning there
-is no reliable way to pass state to them. Passing a lambda which does not have a
-static lifetime will cause issues. This will be reworked in the future to
-utilize the engine object system instead.
-
 ## Programming Interface
 
 The `console.hpp` header provides you with the `print()` functions and various
@@ -65,8 +60,7 @@ overloads of it, as well as utility functions:
 You may also programmatically clear the console via the `clear()` function.
 
 You may use the `registerCommand(StringView, CmdCallback)` function to register
-a custom command. You can view all registered commands via the `c.list` console
-command.
+a custom command.
 
 ## Commands
 
@@ -147,7 +141,7 @@ View engine version.
 
 [nwge documentation]: README
 [Journal]: JOURNAL
-[Engine Objects]: ENGINEOBJECTS
+[Engine Objects]: OBJECTS
 [Scratch-space]: MEMORY#scratch-space
 
 ### Renderer commands (`r.*`)
@@ -184,10 +178,6 @@ Toggle wireframe mode.
 #### `c.clear`
 
 Clear the console.
-
-#### `c.list`
-
-View console commands registered by the app.
 
 #### `c.echo`
 

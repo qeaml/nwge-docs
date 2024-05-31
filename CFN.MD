@@ -4,7 +4,7 @@
 for nwge's text rendering system. It is structured in a specific way that allows
 the engine to load it quickly and then render text very fast.
 
-This document servers as an explanation of the nwge text rendering system and
+This document serves as an explanation of the nwge text rendering system and
 the NwgeCFN format.
 
 ## Render text, fast

@@ -71,8 +71,8 @@ Since this shader is mostly meant for 2D rendering, it doesn't do anything in
 the direction of projection or anything. Since you do have access to the engine
 matrix stack, you can simply calculate your own projection matrix and still use
 this shader to render 3D geometry. Nwge doesn't provide any 3D rendering
-primitives out-of-the-box, but it is completely possible to render 3D rendering
-with some extra tinkering.
+primitives out-of-the-box, but it is completely possible to render 3D with some
+extra tinkering.
 
 #### `Font`
 

@@ -154,7 +154,7 @@ likely rely on [OpenAL].
 Although nwge provides decent support for 2D, it lacks any built-in support for
 3D rendering. It is possible to render 3D geometry by wrangling with matrix
 stacks and projection matrices yourself, but support for 3D is planned to also
-be implemented in the engine in much the same way as 3D rendering.
+be implemented in the engine in much the same way as 2D rendering.
 
 ### PBR
 
@@ -183,9 +183,9 @@ wouldn't hold my breath waiting for it.
 
 As projects using nwge get released, multiple different versions of nwge will
 begin floating around. The Windows DLLs of nwge contain version information,
-which is also available via the `e.ver` console command. That command also prints
-out information about the libraries nwge uses as well as the compiler & build
-system used to compile nwge.
+which is also available via the [`e.ver`](CONSOLE#ever) console command. That
+command also prints out the compilation time, build number, compiler and
+platform.
 
 <figure>
   <img src="img/e.ver.png" alt="Screenshot of the e.ver command" />

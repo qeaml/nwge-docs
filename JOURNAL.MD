@@ -6,7 +6,8 @@ The journal is significantly more verbose as its primary purpose is to aid in
 debugging. In case a fatal error occurs, the engine will automatically save the
 journal to a file. You can then look through this file to troubleshoot yourself
 or you can send it off to the app or engine developer for investigation. You can
-view the journal at any moment by using the `e.journal` console command.
+view the journal at any moment by using the [`e.journal`](CONSOLE#ejournal)
+console command.
 
 <figure>
   <img src="img/journal.png" alt="Screenshot of the Journal window" />

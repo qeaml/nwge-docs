@@ -10,7 +10,7 @@ You can also read more on the following topics:
 * [Configuration](CONFIG)
 * [Console](CONSOLE)
 * [Data System](DATA)
-* [Engine Objects](ENGINEOBJECTS)
+* [Engine Objects](OBJECTS)
 * [Engine Initialization](INIT)
 * [Engine Journal](JOURNAL)
 * [`libnwge_cfn`](libnwge_cfn)

@@ -139,7 +139,8 @@ If we assume that nwge's home directory is `%APPDATA%\nwge`, then:
 As we can conclude from above, a store may or may not have a name. Stores cannot
 be loaded from a path directly.
 
-You can see the exact paths the engine uses with the `e.paths` console command.
+You can see the exact paths the engine uses with the [`e.path`](CONSOLE#epath)
+console command.
 
 ## Data types
 

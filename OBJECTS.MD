@@ -17,6 +17,7 @@ currently implemented object types (as per `object.hpp`)
 `Store`       | 3 | Represents a data system [data store].
 `Bundle`      | 4 | Represents a data system [bundle].
 `KeyBind`     | 5 | Represents a key binding.
+`Command`     | 6 | Represents a [console] command.
 
 The object ID `0x00FFFFFF` is used to represent invalid objects.
 
@@ -29,8 +30,9 @@ count reaches 0, the object is actually disposed.
 
 All the objects are stored in separate object pools. These internal pools are
 limited in size. See `engineLimits.h` for information about their actual sizes.
-The population of these pools can be checked with the `e.objects` console
-command or with the `Object::query()` function.
+The population of these pools can be checked with the
+[`e.objects`](CONSOLE#eobjects) console command or with the `Object::query()`
+function.
 
 Note that an application *cannot* add its own custom objects, hence they are
 called engine objects. They are used as interfaces over objects stored
@@ -39,3 +41,4 @@ internally in the engine.
 [font]: CFN#render-text-fast
 [data store]: DATA#data-stores
 [bundle]: DATA#bundles
+[console]: CONSOLE
