@@ -57,7 +57,7 @@ that process.
 
 The rest of the initialization is performed from your call to `startPtr`
 (`start` is just a wrapper over `startPtr`). This is where initialization that
-needs the [developer configuration][dev-cfg] is performed.
+needs the [developer configuration] is performed.
 
 Pre-initialization consists of the following:
 
@@ -72,7 +72,7 @@ Pre-initialization consists of the following:
 At this point nwge retakes execution and finishes everything that wasn't fully
 initialized. For example, the user's app config is loaded here, since we didn't
 know the app name before (the config file is named after the app). We also
-re-initialize any [Store][store] paths.
+re-initialize any [Store] paths.
 
-[dev-cfg]: CONFIG#developer-facing-config
+[developer configuration]: CONFIG#developer-facing-config
 [store]: DATA#data-stores

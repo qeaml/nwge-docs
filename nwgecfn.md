@@ -1,7 +1,7 @@
 # nwgecfn
 
 The `nwgecfn` command-line tool is used to compile & inspect NwgeCFN fonts. It
-interacts with SDL2, SDL2_ttf and libnwge_cfn directly.
+interacts with SDL2, SDL2_ttf and [libnwge_cfn](libnwge_cfn) directly.
 
 Simply running the command with no arguments will print out a help message:
 

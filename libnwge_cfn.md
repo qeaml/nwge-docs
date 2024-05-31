@@ -2,7 +2,7 @@
 
 This is a small library to aid in reading, writing and generating NwgeCFN files.
 
-## Quickstart
+## Quick Start
 
 Everything exported from the library is defined in `<nwge/cfn/cfn.h>`.
 
@@ -35,7 +35,7 @@ Once you are done with the font, you must free the allocated memory:
 cfnFree(&font);
 ```
 
-Note that you don't have to deallocate memory from a font object before loading
+Note that you don't have to de-allocate memory from a font object before loading
 another font into it:
 
 ```c

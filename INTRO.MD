@@ -78,7 +78,7 @@ configuration files and other app-specific data.
   </figcaption>
 </figure>
 
-For more information, see the [data system docs](DATA#bundles).
+For more information, see the [data system docs](DATA).
 
 ### State management
 
@@ -147,7 +147,7 @@ For more information, see the [configuration docs](CONFIG).
 
 Nwge completely lacks any kind of audio system. This is, however, planned to be
 implemented in the forseeable future. If you're wondering, the audio system will
-likely rely on [OpenAL][OpenAL].
+likely rely on [OpenAL].
 
 ### 3D
 

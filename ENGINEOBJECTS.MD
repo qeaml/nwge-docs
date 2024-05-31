@@ -13,9 +13,9 @@ currently implemented object types (as per `object.hpp`)
 --------------|--------|-------------
 `Reserved`    | 0 | Used only for invalid/uninitialized objects.
 `AspectRatio` | 1 | Represents a renderer aspect ratio object.
-`Font`        | 2 | Represents a renderer [font][font].
-`Store`       | 3 | Represents a data system [data store][store].
-`Bundle`      | 4 | Represents a data system [bundle][bundle].
+`Font`        | 2 | Represents a renderer [font].
+`Store`       | 3 | Represents a data system [data store].
+`Bundle`      | 4 | Represents a data system [bundle].
 `KeyBind`     | 5 | Represents a key binding.
 
 The object ID `0x00FFFFFF` is used to represent invalid objects.
@@ -37,5 +37,5 @@ called engine objects. They are used as interfaces over objects stored
 internally in the engine.
 
 [font]: CFN#render-text-fast
-[store]: DATA#data-stores
+[data store]: DATA#data-stores
 [bundle]: DATA#bundles

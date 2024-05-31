@@ -7,8 +7,10 @@
 These configuration options dictate how the developer expects the engine to act.
 They are passed in the `nwge::start` call and cannot be modified afterwards.
 
-* [Load priority][load-priority] & [blocking][load-blocking].
+* [Load priority] & [Load blocking].
 * Application name.
+* Window options: Resizable, borderless, aspect ratio.
+* Initial cursor state: Captured, which cursor to use.
 * Initial user-facing configuration options.
 
 ### User-facing Config
@@ -41,5 +43,5 @@ immersive "Options" menus.
 The user still has the options of creating their own overrides via the
 Configuration Manager.
 
-[load-priority]: DATA.MD#load-priority
-[load-blocking]: DATA.MD#blocking-loads
+[load priority]: DATA.MD#load-priority
+[load blocking]: DATA.MD#blocking-loads

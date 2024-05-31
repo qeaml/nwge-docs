@@ -25,9 +25,9 @@ instead:
 
  Key                            | Equivalent command
 --------------------------------|-----------------------------------------------
-<kbd>F3</kbd> *(removed)*       | `e.profiler`
-<kbd>F6</kbd> *(removed)*       | `r.wireframe`
-<kbd>F11</kbd>                  | `r.fullscreen`
-<kbd>F12</kbd>                  | `e.journal` ("Save journal to disk" button)
-<kbd>Shift</kbd>+<kbd>F12</kbd> | `e.quit`
-<kbd>Ctrl</kbd>+<kbd>F12</kbd>  | `e.testassert`
+<kbd>F3</kbd> *(removed)*       | [`e.profiler`](CONSOLE#eprofiler)
+<kbd>F6</kbd> *(removed)*       | [`r.wireframe`](CONSOLE#rwireframe)
+<kbd>F11</kbd>                  | [`r.fullscreen`](CONSOLE#rfullscreen)
+<kbd>F12</kbd>                  | [`e.journal`](CONSOLE#ejournal) ("Save journal to disk" button)
+<kbd>Shift</kbd>+<kbd>F12</kbd> | [`e.quit`](CONSOLE#equit)
+<kbd>Ctrl</kbd>+<kbd>F12</kbd>  | [`e.testAssert`](CONSOLE#etestassert)
