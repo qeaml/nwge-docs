@@ -35,7 +35,9 @@ The first eight bytes of a bundle file consist of a magic number, where:
 
 The bundle header consists of two fields:
 
-* The 4-byte offset into the file at which the File Tree is stored.
+* The 4-byte offset into the file at which the File Tree is stored. The official
+  `libnwge_bndl` implementation ensures the File Tree offset is aligned to 16
+  bytes (divisible by 16). This not required.
 
 * 4 bytes of padding. The official `nwgebndl` tool writes the ASCII byte
   sequence `nwge` (`0x6567776E`) here.
@@ -95,7 +97,8 @@ store file data in both locations at once. It is permissible for file data to
 overlap. It is permissible for file data to extend into the bundle file
 structures, as bundle files are inherently immutable. It is permissible for the
 files' data to not be stored contiguously -- i.e. with padding added between
-files.
+files. The official `libnwge_bndl` implementation adds padding between files to
+ensure data is aligned to 16-byte boundaries.
 
 ## Example File
 
