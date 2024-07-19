@@ -42,30 +42,22 @@ This file contains the journal in plain text, which should make it easily
 readable for post-cash debugging.
 
 ```log
-0.000002  DEBUG/Object  : Object created
-Type: 0x1
-Num: 0x0000
+0.000004  DEBUG/State   : Pre-initializing engine
+Version: 0.13 (build #2326: 20 Jul 2024 at 01:59)
 
-0.000083  DEBUG/State   : Pre-initializing engine
-Version: 0.6 (build #11946: 27 Apr 2024 at 13:38)
+0.000274  DEBUG/System  : System Information
+OS: EndeavourOS (like arch, kernel: Linux 6.9.10-arch1-1)
+Debugger present: true
+Memory usage: 184324 kB
 
-0.000201  DEBUG/Misc.   : PathMan initialized #1
+0.001256  DEBUG/Misc.   : PathMan initialized #1
 Root: /home/qeaml/.local/share/nwge
 Store: /home/qeaml/.local/share/nwge/store/LOST+FOUND
 Global Config: /home/qeaml/.local/share/nwge/config.json
 App Config: 
 GUI Config: /home/qeaml/.local/share/nwge/imgui.ini
 
-
-0.179951  DEBUG/Misc.   : SDL Initialized
-Headers version: 2.30.2
-Binaries version: 2.30.2
-
-0.179973  DEBUG/Misc.   : SDL_image Initialized
-Binaries version: 2.8.2
-
-0.180061  DEBUG/Misc.   : SDL_ttf Initialized
-Headers version: 2.22.0
-FreeType version: 2.13.2
-HarfBuzz version: 8.4.0
+0.338065  DEBUG/Misc.   : SDL Initialized
+Headers version: 2.30.5
+Binaries version: 2.30.5
 ```
