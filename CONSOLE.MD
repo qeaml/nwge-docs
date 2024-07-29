@@ -158,20 +158,54 @@ View engine version.
 
 Toggle fullscreen mode. This can also be achieved by pressing <kbd>F11</kbd>.
 
-#### `r.info`
-
-View information about the renderer and renderer object counters.
-
-#### `r.wireframe`
-
-Toggle wireframe mode.
-
 #### `r.windowSize`
 
 1. View current window size: `r.windowSize`
 2. Change window size: `r.windowSize <width> <height>`
 
     Only works if the window is resizable and not borderless.
+
+#### `r.textureList`
+
+View a list of all loaded textures. This lists each texture that is currently
+present in memory and uploaded to the GPU.
+
+For example, if only the built-in textures are loaded, you will see:
+
+```
+Currently loaded textures:
+  - 07000000 (built-in; blank) : 16x16
+  - 07000001 (built-in; missing) : 64x64
+  - 07000002 (built-in; default font bitmap) : 1598x20
+```
+
+#### `r.shaderList`
+
+View a list of all loaded shaders. This lists each shader that is currently
+present in memory and uploaded to the GPU. Note that shaders that are destroyed
+after being used in a program will not be listed.
+
+For example, if only the built-in shaders are loaded, you will see:
+
+```
+Currently loaded shaders:
+  - Vertex shader 08000000: built-in; coordinate
+  - Fragment shader 08000001: built-in; fragment
+```
+
+#### `r.programList`
+
+View a list of all loaded shader programs. This lists each shader program that
+is currently present in memory and uploaded to the GPU.
+
+For example, if only the built-in shader programs are loaded, you will see:
+
+```
+Currently loaded shader programs:
+  - Shader program 09000000: built-in; base
+  - Shader program 09000001: built-in; shape
+  - Shader program 09000002: built-in; font
+```
 
 ### Console management commands (`c.*`)
 
