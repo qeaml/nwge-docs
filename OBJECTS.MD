@@ -9,15 +9,20 @@ remaining 3 lower bytes are the ordinal number. This allows for fast lookup
 without ever confusing objects of different types. Below is a table of the
 currently implemented object types (as per `object.hpp`)
 
- Name         | Number | Description
---------------|--------|-------------
-`Reserved`    | 0 | Used only for invalid/uninitialized objects.
-`AspectRatio` | 1 | Represents a renderer aspect ratio object.
-`Font`        | 2 | Represents a renderer [font].
-`Store`       | 3 | Represents a data system [data store].
-`Bundle`      | 4 | Represents a data system [bundle].
-`KeyBind`     | 5 | Represents a key binding.
-`Command`     | 6 | Represents a [console] command.
+ Name           | Number | Description
+----------------|--------|-------------
+`Reserved`      | 0  | Used only for invalid/uninitialized objects.
+`AspectRatio`   | 1  | Renderer aspect ratio object.
+`Font`          | 2  | Renderer [font].
+`Store`         | 3  | Data system [data store].
+`Bundle`        | 4  | Data system [bundle].
+`KeyBind`       | 5  | Key binding.
+`Command`       | 6  | [Console] command.
+`Texture`       | 7  | Renderer texture.
+`Shader`        | 8  | Renderer shader.
+`ShaderProgram` | 9  | Renderer shader program.
+`Buffer`        | 10 | Renderer buffer.
+`VertexArray`   | 11 | Renderer vertex array.
 
 The object ID `0x00FFFFFF` is used to represent invalid objects.
 
