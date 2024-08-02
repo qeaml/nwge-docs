@@ -78,12 +78,21 @@ Note that standard command syntax applies here: in case a key binding has a
 space in its name, simply quote the name:
 
 ```console
-e.bind "some key binding" space
+> e.bind "some key binding" space
+Key binding `some key binding` bound to `space`.
 ```
 
 #### `e.bindList`
 
 View a list of all current key bindings.
+
+For example:
+
+```console
+> e.bindList
+Key bindings:
+  hello: h
+```
 
 #### `e.docs`
 
@@ -172,7 +181,8 @@ present in memory and uploaded to the GPU.
 
 For example, if only the built-in textures are loaded, you will see:
 
-```
+```console
+> r.textureList
 Currently loaded textures:
   - 07000000 (built-in; blank) : 16x16
   - 07000001 (built-in; missing) : 64x64
@@ -187,7 +197,8 @@ after being used in a program will not be listed.
 
 For example, if only the built-in shaders are loaded, you will see:
 
-```
+```console
+> r.shaderList
 Currently loaded shaders:
   - Vertex shader 08000000: built-in; coordinate
   - Fragment shader 08000001: built-in; fragment
@@ -200,7 +211,8 @@ is currently present in memory and uploaded to the GPU.
 
 For example, if only the built-in shader programs are loaded, you will see:
 
-```
+```console
+> r.programList
 Currently loaded shader programs:
   - Shader program 09000000: built-in; base
   - Shader program 09000001: built-in; shape
