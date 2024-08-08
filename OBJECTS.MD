@@ -9,22 +9,29 @@ remaining 3 lower bytes are the ordinal number. This allows for fast lookup
 without ever confusing objects of different types. Below is a table of the
 currently implemented object types (as per `object.hpp`)
 
- Name           | Number | Description
-----------------|--------|-------------
-`Reserved`      | 0  | Used only for invalid/uninitialized objects.
-`AspectRatio`   | 1  | Renderer aspect ratio object.
-`Font`          | 2  | Renderer [font].
-`Store`         | 3  | Data system [data store].
-`Bundle`        | 4  | Data system [bundle].
-`KeyBind`       | 5  | Key binding.
-`Command`       | 6  | [Console] command.
-`Texture`       | 7  | Renderer texture.
-`Shader`        | 8  | Renderer shader.
-`ShaderProgram` | 9  | Renderer shader program.
-`Buffer`        | 10 | Renderer buffer.
-`VertexArray`   | 11 | Renderer vertex array.
+ Name            | Number | Description
+-----------------|--------|-------------
+`Reserved`       | `0` | Used only for invalid/uninitialized objects.
+`AspectRatio`    | `1` | Renderer aspect ratio object.
+`Font`           | `2` | Renderer [font].
+`Store`          | `3` | Data system [data store].
+`Bundle`         | `4` | Data system [bundle].
+`KeyBind`        | `5` | Key binding.
+`Command`        | `6` | [Console] command.
+`Texture`        | `7` | Renderer texture.
+`Shader`         | `8` | Renderer shader.
+`ShaderProgram`  | `9` | Renderer shader program.
+`Buffer`         | `A` | Renderer buffer.
+`VertexArray`    | `B` | Renderer vertex array.
+`AnimatedTexture`| `C` | Renderer animated texture.
 
-The object ID `0x00FFFFFF` is used to represent invalid objects.
+You can thus deduce the ID `0x07000001` to be a `Texture` object with ordinal 1.
+
+The object ID `0x00FFFFFF` is used to represent invalid objects, although any
+object with type `0` or a type not present in the table above is invalid.
+
+> Note: In case the 0 type isn't caught by the engine, the object ordinal
+> 16777215 will certainly be invalid.
 
 The `Object` struct from `object.hpp` represents a handle over an object. This
 means that when such an object goes out of scope, the object it represented does
