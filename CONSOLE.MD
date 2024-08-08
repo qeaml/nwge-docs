@@ -177,16 +177,26 @@ Toggle fullscreen mode. This can also be achieved by pressing <kbd>F11</kbd>.
 #### `r.textureList`
 
 View a list of all loaded textures. This lists each texture that is currently
-present in memory and uploaded to the GPU.
+present in memory and uploaded to the GPU. This includes both regular `Texture`s
+and `AnimatedTexture`s.
 
-For example, if only the built-in textures are loaded, you will see:
+For example:
 
 ```console
 > r.textureList
 Currently loaded textures:
-  - 07000000 (built-in; blank) : 16x16
-  - 07000001 (built-in; missing) : 64x64
-  - 07000002 (built-in; default font bitmap) : 1598x20
+  - Texture 07000000: built-in; blank
+      Size: 16x16
+  - Texture 07000001: built-in; default font bitmap
+      Size: 1598x20
+  - Texture 07000003: fen.jpg
+      Size: 100x100
+  - Texture 07000004: UniFont.cfn; atlas
+      Size: 760x12
+  - Animated texture 0C000000: tux.gif
+      Frame count: 120
+      Playing: true
+      Loop: true
 ```
 
 #### `r.shaderList`
@@ -217,6 +227,36 @@ Currently loaded shader programs:
   - Shader program 09000000: built-in; base
   - Shader program 09000001: built-in; shape
   - Shader program 09000002: built-in; font
+```
+
+#### `r.bufferList`
+
+View a list of all present buffers. This lists each buffer that is currently
+present on the GPU.
+
+For example, if only the built-in buffers are present, you will see:
+
+```console
+> r.bufferList
+Currently present buffer:
+  - Vertex buffer 0A000000: built-in; one vertex
+      Binding: Array Buffer
+      Usage: Static/Draw
+      Vertex Count: 1
+      Min Vertex: 0,0,0
+      Max Vertex: 0,0,0
+  - Vertex buffer 0A000001: built-in; rect vertices
+      Binding: Array Buffer
+      Usage: Static/Draw
+      Vertex Count: 4
+      Min Vertex: 0,0,0
+      Max Vertex: 1,1,0
+  - Buffer 0A000002: built-in; rect indices
+      Binding: Element Array Buffer
+      Usage: Static/Draw
+  - Buffer 0A000003: built-in; font char data
+      Binding: Array Buffer
+      Usage: Dynamic/Draw
 ```
 
 ### Console management commands (`c.*`)
