@@ -4,6 +4,10 @@ A bundle file is used to store multiple files inside of one file.
 
 This documents should answer most of your questions about them.
 
+Additionally, you may view the specification of the bundle format:
+
+* [Version 1](BUNDLEv1)
+
 ## Why?
 
 Having all needed files be inside one file allows us to load the entire bundle
@@ -85,3 +89,4 @@ Use the `nwgebndl` tool to make and manage bundle files. You can:
   ```console
   nwgebndl extract <input bundle> <output directory> REGEX\.PATTERN
   ```
+ 

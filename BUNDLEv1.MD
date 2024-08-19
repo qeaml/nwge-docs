@@ -1,12 +1,9 @@
-# Nwge Bundle Binary Format Specification, Version 1 (DRAFT)
+# Nwge Bundle Format Specification, Version 1
 
 This document shall serve as the specification of the bundle file
 format used by the nwge engine. It contains both the formal definition and
 C-like pseudo-code.
 
-## History
-
-* April 5th, 2024 - Initial draft - qeaml.
 
 ## File Structure
 
