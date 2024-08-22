@@ -151,17 +151,14 @@ likely rely on [OpenAL].
 
 ### 3D
 
-Although nwge provides decent support for 2D, it lacks any built-in support for
-3D rendering. It is possible to render 3D geometry by wrangling with matrix
-stacks and projection matrices yourself, but support for 3D is planned to also
-be implemented in the engine in much the same way as 2D rendering.
+3D rendering support is currently in its early stages. Thus, it may not be
+suitable for use in a game.
 
 ### PBR
 
-On the topic of "rendering nwge doesn't natively support", is Physically-Based
-Rendering. Alike 3D, nwge doesn't do it out-of-the-box, but it is certainly
-possible to achieve via custom shaders. Remember, even though you're using
-nwge's rendering primitives, you can still access the most basic OpenGL
+Nwge doesn't support Physically-Based Rendering out-of-the-box, but it is
+certainly possible to achieve via custom shaders. Remember, even though you're
+using nwge's rendering primitives, you can still access the most basic OpenGL
 functionalities.
 
 ### Automatic rendering optimizations
