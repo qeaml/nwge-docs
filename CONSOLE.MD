@@ -66,6 +66,19 @@ a custom command.
 
 Below is an explanation of every built-in console command.
 
+### Audio commands (`a.*`)
+
+### `a.gain`
+
+1. View the current audio gain: `a.gain`
+2. Change the audio gain: `a.gain <value between 0 and 1>`
+
+The audio gain can be interpreted as a master volume. While the app developer can set the listener's gain, the gain can be further adjusted by the user using this command.
+
+### `a.help`
+
+View the list of audio commands.
+
 ### Engine commands (`e.*`)
 
 #### `e.bind`

@@ -20,8 +20,8 @@ SDL or Raylib.
     * [Memory allocation](#memory-allocation)
     * [Profiling](#profiling)
     * [Configuration](#configuration)
-  * [What doesn't it do?](#what-doesnt-it-do)
     * [Audio](#audio)
+  * [What doesn't it do?](#what-doesnt-it-do)
     * [3D](#3d)
     * [PBR](#pbr)
     * [Automatic rendering optimizations](#automatic-rendering-optimizations)
@@ -141,13 +141,13 @@ restricted by the developer.
 
 For more information, see the [configuration docs](CONFIG).
 
-## What doesn't it do?
-
 ### Audio
 
-Nwge completely lacks any kind of audio system. This is, however, planned to be
-implemented in the forseeable future. If you're wondering, the audio system will
-likely rely on [OpenAL].
+When it comes to audio, nwge comes with a simple wrapper over OpenAL with some additional niceties that make working with it simple. Additionally, the audio system integrates with the renderer to allow the audio listener to be synchronized with the camera currently being used for 3D rendering. The engine provides the ability to load WAV, FLAC and MP3 files out of the box.
+
+There is currently no exhaustive documentation on this.
+
+## What doesn't it do?
 
 ### 3D
 

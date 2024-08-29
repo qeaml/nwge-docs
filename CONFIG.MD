@@ -22,6 +22,7 @@ runtime, either via console command or with a configuration file.
 * Window size.
 * Initial full-screen mode.
 * FPS limiter: Automatic or manual.
+* Audio gain.
 
 The user may override these options in many ways. Below is a list of steps taken
 to determine the final values:
