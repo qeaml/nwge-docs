@@ -21,4 +21,10 @@ action:
 ```console
 $ nwgecfn compile -h
 Usage: nwgecfn compile <TrueType font> <resolution> <NwgeCFN output font>
+Supported flags:
+  -no-rle -> Disable Run-Length Encoding
 ```
+
+The tool compiles fonts with RLE enabled by default, but this can be disabled
+with the `-no-rle` flag. For more information on RLE, see the
+[`libnwge_cfn`](libnwge_cfn) documentation.
