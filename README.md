@@ -7,7 +7,6 @@ You can also read more on the following topics:
 
 * [Apps using nwge](APPS)
 * [Bundle Files](BUNDLE)
-* [Font Rendering](CFN)
 * [Configuration](CONFIG)
 * [Console](CONSOLE)
 * [Engine Changelog](ENGINECHANGELOG)
@@ -20,3 +19,4 @@ You can also read more on the following topics:
 * [Memory Allocation](MEMORY)
 * [`nwgecfn` (the CLI tool)](nwgecfn)
 * [Nwge & Shaders](SHADER)
+* [Fonts & Text Rendering](Text)
