@@ -68,16 +68,40 @@ Below is an explanation of every built-in console command.
 
 ### Audio commands (`a.*`)
 
-### `a.gain`
+#### `a.gain`
 
 1. View the current audio gain: `a.gain`
 2. Change the audio gain: `a.gain <value between 0 and 1>`
 
 The audio gain can be interpreted as a master volume. While the app developer can set the listener's gain, the gain can be further adjusted by the user using this command.
 
-### `a.help`
+#### `a.help`
 
 View the list of audio commands.
+
+### Data commands (`d.*`)
+
+#### `d.bundleList`
+
+View a list of all bundles. This will include both bundles that are loaded and
+bundles that have not yet been loaded. This will also display the version of
+each bundle.
+
+For example:
+
+```console
+> d.bundleList
+Currently present bundles:
+  - Bundle 04000000: SelfCheck.bndl
+    Path: SelfCheck.bndl
+    Loaded: Yes
+    Version: 2
+    File count: 3
+```
+
+#### `d.help`
+
+View the list of data commands.
 
 ### Engine commands (`e.*`)
 
