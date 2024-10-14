@@ -3,6 +3,131 @@
 This document contains changelogs for all publicly available versions of the
 engine. Each version is also accompanied by the date on which it was released.
 
+## 0.14
+
+**October 14th, 2024**
+
+* Changed how engine GUIs are handled internally. This changes how some
+  engine-level key bindings behave:
+  * The journal/crash button was changed from <kbd>F12</kbd> to <kbd>F10</kbd>.
+    Additionally, it now works the same regardless of whether the debugging
+    toolbar is visible or not.
+  * Pressing function keys no longer causes key bindings to be triggered.
+  * Fixed some minor Dear ImGui API usage issues.
+  * Changed debugging toolbar key bindings:
+    * <kbd>F2</kbd> - toggle console.
+    * <kbd>F3</kbd> - toggle journal viewer.
+    * <kbd>F4</kbd> - toggle profiler.
+    * <kbd>Esc</kbd> - hide the debugging toolbar.
+* Changed `NWGE_UNREACHABLE` & `nwgeUnreachable()` to accept a message.
+* Improved console implementation.
+* Removed `console::show()`.
+* Added `console::Command::run()`.
+* Changed some internal implementation details of various engine subsystems,
+  which may result in minor performance improvements.
+* Fixed a potential buffer overflow in `cliParse()`.
+* Added basic support for 3D rendering.
+  * Added `render::model`, which simply renders the provided mesh using the
+    current matrix stack as the model matrix.
+  * Added `render::plane`, which accepts a transform object defining its
+    position, rotation and scale as well as an optional texture.
+  * Added `render::Camera`.
+    * Use `Camera::makeCurrent()` to make the camera the current camera. This
+      will cause all future rendering to use the camera's settings, position,
+      rotation etc.
+    * Use `Camera::settings()` to view or change the camera's settings.
+    * Use `Camera::pos()` to get the camera's position.
+    * Use `Camera::move()` to move the camera.
+    * Use `Camera::rot()` to get or change the camera's rotation.
+    * Use `Camera::front()` to get the camera's front vector.
+    * Use `Camera::right()` to get the camera's right vector.
+* Rewrote mouse cursor management code.
+  * Fixed mouse capture.
+* Fixed "Quit App" button in the debugging toolbar.
+* Added ability to change cull mode on the fly.
+  * Added `render::cullMode()`.
+  * Added `r.cullMode` command.
+* Added `Cursor::Hidden` and `Cursor::Captured`.
+* Removed `releaseCursor()`, use `defaultCursor()` instead.
+* Fixed window not being resizable.
+* Increased maximum amount of Shaders and Shader Programs to 16 each.
+* Added audio system.
+  * 16-bit signed 44.1 kHz audio.
+  * Uses MojoAL for audio playback and dr_wav for loading WAV files.
+  * Added `audio::Buffer`.
+  * Added `audio::Source`.
+  * Added `audio::listenerXxx` functions.
+  * Added `gainScale` user configuration option.
+  * Added `config::setGainScale` and `config::getGainScale`.
+  * Added `a.gain` command.
+* Changed CFN generation to use stb_truetype instead of SDL_ttf.
+  * All functions which previously accepted a `TTF_Font` pointer now accept an
+    `SDL_RWops` for a TrueType font file as well as an atlas height.
+  * Monospace fonts are currently not supported and all fonts will be generated
+    as a variable-width font.
+  * SDL_ttf is no longer a required dependency.
+* Added `CfnErrorInvalidArg`, `CfnErrorUnimplemented`.
+* Renamed `CFN_FLAG_X_MASK` to `CFN_FLAG_X`.
+* Added support for Run-Length Encoding in NwgeCFN fonts.
+* Changed the font compiler to use RLE by default.
+  * Added `-no-rle` flag to disable RLE.
+* Added `Path::Iterator` and `Path::iterate()`.
+* Added `Path::isFile()` and `Path::isDir()`.
+* Changed built-in blank texture to no longer use up an entry in the texture
+  object pool.
+* Added `r.textures` to enable & disable textures.
+* Added `json::ObjectBuilder` and `json::ArrayBuilder` for easier construction
+  of these values.
+* Added `json::Schema` for easier parsing and validation of JSON objects and
+  arrays.
+* Added `std::formatter` for `Maybe`.
+* Added `Table`.
+* Added `XXH64`.
+* Changed `Slice::push()` to return a reference to the newly pushed element.
+* Added `Slice::emplace()`.
+* Changed how window state is saved to config file:
+  * Added `windowState`:
+    * `Default` is used when the user didn't change anything about the window.
+    * `Resized` is used when the user resized the window.
+    * `Maximized` is used when the user maximized the window.
+    * `Fullscreen` is used when the user toggled fullscreen mode.
+  * Changed `windowW` and `windowH` to only be saved when `windowState` is
+    `Resized`.
+  * Added `config::WindowState` and `config::User::windowState`.
+  * Changed window size to be separate from viewport size and render resolution.
+* Added `config::Dev::filterTextures`.
+  * Defaults to `false` to replicate old behavior.
+* Added `r.filterTextures` command.
+* Added console command history.
+* Fixed `e.quit` and toolbar's `Quit App` button not working.
+* Added the kill screen.
+* Fixed the built-in default font.
+* Added `Store::nqDelete`.
+* Added `rebuild` action to the `nwgecfn` tool.
+    ```sh
+    nwgecfn rebuild <input NwgeCFN font> [output NwgeCFN font]
+    ```
+* Rewrote the entire fonts & text rendering code.
+  * Changed NwgeCFN version to v2. NwgeCFN v1 is no longer supported.
+  * Updated built-in default font.
+  * Improved font texture atlas generation.
+  * Removed support for loading TrueType fonts.
+  * Removed `Font` methods:
+    * `save()`
+    * `generate()`
+    * `createMonospace()`
+    * `createVariable()`
+* Added support for Nwge Bundle version 2.
+  * V2 offers support for file modification times:
+    * Currently, this is only supported by the binary format. The API does not
+      support this.
+  * V2 ensures file tree integrity by checking the file tree hash.
+    * This is performed automatically when loading or saving a bundle.
+    * This uses the xxHash64 algorithm.
+  * V2 supports flags, which allow for more advanced features to be added in a
+    backwards-compatible manner.
+* Added `d.help` and `d.bundleList` commands.
+
 ## 0.13
 
 **August 11th, 2024**
