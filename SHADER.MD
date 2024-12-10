@@ -90,8 +90,8 @@ If you want to get a reference to the built-in shaders, use the following
 methods:
 
 ```cpp
-namespace nwge::render::gl {
-struct Shader {
+namespace nwge::render {
+struct Shader: public Object {
   // ...
 
   static const Shader &defaultVertex(); // <- `coord` shader
@@ -100,16 +100,17 @@ struct Shader {
 
   // ...
 } // struct Shader
-} // namespace nwge::render::gl
+} // namespace nwge::render
 ```
 
 ## Custom
 
 You can also write your own shaders, if you need anything more than the bare
 bones shaders that nwge provides. While there is no easy way to load shaders
-from bundles (currently, April 2024), it is still possible to use your own
+from bundles (currently, December 2024), it is still possible to use your own
 shaders via the `Shader` and `ShaderProgram` structures in the
-`nwge::render::gl` namespace (see `<nwge/render/gl.hpp>`).
+`nwge::render` namespace (see `<nwge/render/Shader.hpp>` and
+`<nwge/render/ShaderProgram.hpp>`).
 
 Keep in mind: when implementing vertex shaders you have to perform the
 nwge-to-OpenGL coordinate conversion yourself, unless you wish to use the less
@@ -168,6 +169,9 @@ uniform vec4 in_Tint;
 
 void main() {
   FragColor = texture(in_Texture, fr_TexCoord) * fr_Color * in_Tint;
+  if(FragColor.a < 1.0/128.0) {
+    discard;
+  }
 }
 ```
 

@@ -24,6 +24,9 @@ currently implemented object types (as per `object.hpp`)
 `Buffer`         | `A` | Renderer buffer.
 `VertexArray`    | `B` | Renderer vertex array.
 `AnimatedTexture`| `C` | Renderer animated texture.
+`Camera`         | `D` | Renderer camera used for 3D rendering.
+`AudioBuffer`    | `E` | Audio system buffer.
+`AudioSource`    | `F` | Audio system audio source.
 
 You can thus deduce the ID `0x07000001` to be a `Texture` object with ordinal 1.
 

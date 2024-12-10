@@ -18,7 +18,6 @@ SDL or Raylib.
     * [State management](#state-management)
     * [Console](#console)
     * [Memory allocation](#memory-allocation)
-    * [Profiling](#profiling)
     * [Configuration](#configuration)
     * [Audio](#audio)
   * [What doesn't it do?](#what-doesnt-it-do)
@@ -35,8 +34,8 @@ SDL or Raylib.
 
 When it comes to rendering, nwge is effectively an abstraction layer over
 OpenGL. It provides some basic primitives for idiots (like me, qeaml) to get
-simple graphics via code. Every piece of OpenGL used by the engine is also
-available in the public API, under the `nwge::render::gl` namespace. There is
+simple graphics via code. Lower level building blocks of the rendering API are
+available as various [engine objects](OBJECTS). There is
 currently no exhaustive documentation on this.
 
 ### Text rendering
@@ -118,20 +117,6 @@ you free memory you allocated from but, it is very limited in size (5MB total!).
 
 For more information, see the [memory allocation docs](MEMORY).
 
-### Profiling
-
-When it comes to profiling, nwge provides a minimalistic profiler allowing you
-to see how much time the engine is spending on certain parts of the main loop.
-
-<figure>
-  <img src="img/profiler.png" alt="Profiler Screenshot" />
-  <figcaption>
-    The profiler displaying frame timings and memory usage.
-  </figcaption>
-</figure>
-
-There is currently no exhaustive information documentation on this.
-
 ### Configuration
 
 When it comes to configuration, nwge is rather configurable, both for the app
@@ -143,7 +128,11 @@ For more information, see the [configuration docs](CONFIG).
 
 ### Audio
 
-When it comes to audio, nwge comes with a simple wrapper over OpenAL with some additional niceties that make working with it simple. Additionally, the audio system integrates with the renderer to allow the audio listener to be synchronized with the camera currently being used for 3D rendering. The engine provides the ability to load WAV, FLAC and MP3 files out of the box.
+When it comes to audio, nwge comes with a simple wrapper over OpenAL with some
+additional niceties that make working with it simple. Additionally, the audio
+system integrates with the renderer to allow the audio listener to be
+synchronized with the camera currently being used for 3D rendering. The engine
+provides the ability to load WAV, FLAC and MP3 files out of the box.
 
 There is currently no exhaustive documentation on this.
 

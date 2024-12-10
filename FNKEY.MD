@@ -10,7 +10,7 @@ engine-level actions.
 --------------------------------|-----------------------------------------------
 <kbd>F2</kbd>                   | Toggle debugging toolbar
 <kbd>F10</kbd>                  | Save engine journal to disk
-<kbd>Shift</kbd>+<kbd>F10</kbd> | Exit application
+<kbd>Shift</kbd>+<kbd>F10</kbd> | Trigger capture if RenderDoc is attached
 <kbd>Ctrl</kbd>+<kbd>F10</kbd>  | Crash application
 <kbd>F11</kbd>                  | Toggle fullscreen mode
 
@@ -25,7 +25,6 @@ instead:
  Key                            | Equivalent command
 --------------------------------|-----------------------------------------------
 <kbd>F10</kbd>                  | [`e.journal`](CONSOLE#ejournal) ("Save journal to disk" button)
-<kbd>Shift</kbd>+<kbd>F10</kbd> | [`e.quit`](CONSOLE#equit)
 <kbd>Ctrl</kbd>+<kbd>F10</kbd>  | [`e.testAssert`](CONSOLE#etestassert)
 <kbd>F11</kbd>                  | [`r.fullscreen`](CONSOLE#rfullscreen)
 
@@ -37,7 +36,6 @@ available:
 <kbd>F1</kbd>                   | Open nwge documentation
 <kbd>F2</kbd>                   | Toggle console
 <kbd>F3</kbd>                   | Toggle journal viewer
-<kbd>F4</kbd>                   | Toggle profiler
 <kbd>F9</kbd>                   | Hide debugging toolbar
 
 All other key binds still work when the debugging toolbar is visible. The above

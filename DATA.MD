@@ -24,17 +24,10 @@ place where the data is enqueued decides how the loading process in handled.
 This mostly depends on which `State` method the data was enqueued within and the
 `LoadBlocking` and `LoadPriority` settings.
 
-Internally, there are 8 queues in the data system:
+Internally, there are multiple queues in the data system. Most are defined in
+the `data/queues.ipp` header file in the NWDK.
 
-1. Bundle loading queue
-2. Font loading queue
-3. Texture loading queue
-4. Script loading queue
-5. Custom data loading queue
-6. Data store loading queue
-7. Data store saving queue
-
-These queues are handled in this exact order. Every queue is limited to 16 items
+These queues are handled in a specific queue. Every queue is limited to 16 items
 each, but you should generally never reach this limit.
 
 Previous versions of nwge also had a string queue, allowing for text data to

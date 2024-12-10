@@ -144,6 +144,11 @@ Display a help message listing all engine commands.
 Open the Journal window. See [Journal]. You can also press <kbd>F12</kbd> to
 dump the journal if the console is not available.
 
+### `e.license`
+
+View a license notice regarding the Nwge engine and the 3rd-party technologies
+it uses.
+
 #### `e.objects`
 
 View the current engine object counters. See [Engine Objects].
@@ -151,10 +156,6 @@ View the current engine object counters. See [Engine Objects].
 #### `e.path`
 
 View the current engine paths.
-
-#### `e.profiler`
-
-Open the Profiler window.
 
 #### `e.quit`
 
