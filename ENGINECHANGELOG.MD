@@ -3,6 +3,67 @@
 This document contains changelogs for all publicly available versions of the
 engine. Each version is also accompanied by the date on which it was released.
 
+## 0.15
+
+**December 22nd, 2024**
+
+* Fixed `nwgebndl extract` file name filter.
+* Added `CodepointIterator`.
+* Updated string rendering to properly handle UTF-8 codepoints.
+* Updated JSON parser & encoder to accept UTF-8 codepoints.
+* Updated file path parser to accept UTF-8 codepoints.
+* Reintroduced `render::text`.
+* Added support for MP3 files.
+* Improved handling of engine panic before the renderer has been fully
+  initialized.
+  * Before: The app would freeze with no way to exit it other than to terminate
+    the process.
+  * Now: The engine will check if a usable window is present and show a dialog
+    box if not.
+* Removed a lot of bloat from the engine journal.
+* Improved how the sub-state stack is implemented to avoid a ton of potential
+  use-after-free issues.
+  * Fixed some edge cases with sub-state ordering.
+* Added `nwge::clearSubStates()`.
+* Improved how data loading queues are defined.
+  * Added dedicated queues for `AnimatedTexture`s, `Sound`s and
+    `audio::Buffer`s.
+  * Removed `JSON` queue.
+  * All queues are now defined in the `data/queues.ipp` header.
+* Added `render::Mesh`.
+* Added STL and OBJ model loading support.
+  * **Note:** Nwge, by default, uses clockwise
+    winding order. Most other software, on the other hand, uses
+    counter-clockwise. When loading an STL file, Nwge will reorder the
+    triangles' vertices. Nwge does not reorder vertices in OBJ files.
+  * **Tip:** Use the `render::cullMode` and `render::resetCullMode` functions to
+    control winding order.
+* Removed in-engine profiler.
+* Added a call to `glPushDebugGroup()` for main state render and every sub-state
+  render. (and an appropriate `glPopDebugGroup()` call of course)
+  * This should make it easier to troubleshoot issues with multiple sub-states
+    rendering incorrectly.
+* Improved error handling in `libnwge_bndl`.
+  * Bundle file structure is now validated. Files can no longer overlap the
+    header or file tree.
+  * Errors are now properly shown in the `nwgebndl` CLI.
+  * `bndlFreeWriter` now returns a `BndlErr`. The function has also been marked
+    as no-discard to ensure the error is handled after updating.
+* Improved implementation details of `nwgebndl` CLI.
+* Added basic mod support.
+  * Mods are folders inside the `mods` folder in the same directory as the main
+    app executable.
+  * Each mod contains a folder for each bundle file it modifies.
+  * Files placed in a bundle folder will replace the files present in the bundle
+    with the ones from the modded folder instead.
+  * Example: `mods/.../game/Settings.json` will replace `Settings.json` in
+    `game.bndl`.
+* Fixed `Path::ext()` incorrectly handling empty extensions.
+* Removed custom bundle lookup directories.
+  * Bundles are loaded from either the current working directory or from the
+    `data` directory.
+* Fixed sub state stack ticking inexistent sub states.
+
 ## 0.14
 
 **October 14th, 2024**
