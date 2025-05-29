@@ -18,5 +18,6 @@ You can also read more on the following topics:
 * [The `Maybe<T>` type](MAYBE)
 * [Memory Allocation](MEMORY)
 * [`nwgecfn` (the CLI tool)](nwgecfn)
+* [Optional Libraries](OptLibs)
 * [Nwge & Shaders](SHADER)
 * [Fonts & Text Rendering](Text)
