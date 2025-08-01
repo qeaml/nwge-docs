@@ -5,13 +5,14 @@ good start.
 
 You can also read more on the following topics:
 
+* [Engine Object](EngineObject)
+* [Bundle](data/Bundle)
+* [Store](data/Store)
 * [Apps using nwge](APPS)
-* [Bundle Files](data/Bundle)
 * [Configuration](CONFIG)
 * [Console](CONSOLE)
 * [Engine Changelog](ENGINECHANGELOG)
 * [Data System](DATA)
-* [Engine Objects](OBJECTS)
 * [Engine Initialization](INIT)
 * [Engine Journal](JOURNAL)
 * [`libnwge_cfn`](libnwge_cfn)

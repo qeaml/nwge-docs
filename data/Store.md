@@ -3,8 +3,8 @@
 A data system **store** is the primary mechanism for saving & loading data in
 the nwge engine. While a [bundle](Bundle) can only be used for loading data, a
 store can be used to both save and load data. This is mainly used to record
-player progress in your game. A store engine object is used to load and save
-files in a store directory.
+player progress in your game. A store [engine object](../EngineObject) is used
+to load and save files in a store directory.
 
 ## Engine Object
 

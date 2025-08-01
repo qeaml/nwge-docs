@@ -1,10 +1,10 @@
 # Bundle
 
 A data system **bundle** is the primary mechanism for storing assets in the nwge
-engine. A bundle engine object is used to load files from a bundle file. Such
-bundle files are usually created using the `nwgebndl` command-line tool provided
-with nwge binaries. Bundle files can also be read and written by interfacing
-with the `nwge_bndl` shared library directly.
+engine. A bundle [engine object](../EngineObject) is used to load files from a
+bundle file. Such bundle files are usually created using the `nwgebndl`
+command-line tool provided with nwge binaries. Bundle files can also be read and
+written by interfacing with the `nwge_bndl` shared library directly.
 
 Bundles are **flat**. You cannot have directories within a bundle, only files.
 The `nwgebndl` tool will emit a warning if it encounters a directory while
