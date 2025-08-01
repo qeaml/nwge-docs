@@ -6,7 +6,7 @@ good start.
 You can also read more on the following topics:
 
 * [Apps using nwge](APPS)
-* [Bundle Files](BUNDLE)
+* [Bundle Files](data/Bundle)
 * [Configuration](CONFIG)
 * [Console](CONSOLE)
 * [Engine Changelog](ENGINECHANGELOG)
