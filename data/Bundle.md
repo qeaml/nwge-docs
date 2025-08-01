@@ -6,6 +6,10 @@ bundle files are usually created using the `nwgebndl` command-line tool provided
 with nwge binaries. Bundle files can also be read and written by interfacing
 with the `nwge_bndl` shared library directly.
 
+Bundles are **flat**. You cannot have directories within a bundle, only files.
+The `nwgebndl` tool will emit a warning if it encounters a directory while
+adding files to a bundle file.
+
 ## Engine Object
 
 You must use bundle objects to enqueue data to be loaded from bundles into the
@@ -79,6 +83,13 @@ Creating bundle ./target/data/minifish.bndl
 + FISHSKELETON.OBJ
 ...
 ```
+
+When you're creating a bundle, the following will **not** be included in the
+resulting bundle:
+
+* Folders
+* Files beginning with an underscore (`_`) or a dot (`.`)
+* Files ending with a tilde (`~`)
 
 You can see what files are contained in a bundle file with the `list` action:
 
