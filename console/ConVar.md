@@ -11,7 +11,7 @@ The `nwge::console::Var` class template is defined in the
 `<nwge/console/Var.hpp>` header. The Var object contains a Command engine object
 with a callback defined by the Var class. The command is registered under the
 same name as the Var. The command can then be used to view and change the value
-of the Var. For example, given a Var named `coolness` of type `s32`:
+of the Var. For example, given a Var named `coolness`:
 
 ```console
 > coolness
