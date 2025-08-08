@@ -3,9 +3,358 @@
 This document contains changelogs for all publicly available versions of the
 engine. Each version is also accompanied by the date on which it was released.
 
+## 0.20
+
+*July 8th, 2025*
+
+* Added `VertexAttribute` helper class.
+* Added random number generation functions: `randU64()`, `randInt()`,
+  `randF32()`, `randFloat()`.
+* Fixed a crash when destroying an invalid object.
+* Removed `e.objects` console command.
+* Added `e.objectCount` and `e.verboseObjects` console commands.
+* Added `e.version` as an alias for the `e.ver` console command.
+* Updated the Renderer Options window in the debug toolbar.
+  * Added a `Fullscreen` checkbox. This is equivalent to pressing <kbd>F11</kbd>
+    or the `r.fullscreen` console command.
+  * Added a `Texture Filtering` checkbox that enables or disables filtering for
+    Texture and AnimatedTexture objects. This is equivalent to the
+    `r.filterTextures` console command.
+  * Added a `Font Texture Filtering` checkbox that enables or disables filtering
+    for textures used by Font objects.
+  * Added a `Disable Textures` checkbox that, when enabled, replaces all
+    textures (excluding fonts) with a blank, white texture. This is equivalent
+    to the `r.disableTextures` console command.
+  * Added a `Cull Mode` list, which is equivalent to the `r.cullMode` console
+    command.
+  * Updated the object counters to also include the maximum amount of a given
+    object.
+* Fixed `Font::measure` and `render::measureText`.
+* Updated how font account for window aspect ratio.
+  * No longer uses an AspectRatio object internally.
+
+## 0.19
+
+*July 5th, 2025*
+
+* Added support for IMA ADPCM encoding in RIFF WAVE files.
+* Added support for the [Quite OK Image](https://qoiformat.org) format.
+  * Via [this decoder](https://codeberg.org/q/qoi).
+* Added support for the [Quite OK Audio](https://qoaformat.org) format.
+  * Via the [reference decoder](https://github.com/phoboslab/qoa).
+* Added support for non-RGBA textures.
+  * If your texture is stored with only 3 color channels (no transparency), then
+    the texture will also be stored in that format on the GPU.
+  * This will decrease VRAM usage slightly.
+* Rewrote a majority of the `render::Image` class.
+* Added `r.memory` and `r.fontList`.
+* Improved consistency of engine object copying behavior.
+  * All engine objects now have proper copy constructors and copy assignment
+    operators.
+  * Fixed leaks of certain objects when copying.
+* Added `render::windowIcon` and `Bundle::nqWindowIcon`.
+* Added `render::clearDepth`.
+
+## 0.18
+
+*July 1st, 2025*
+
+* Added `Maybe::orElse`.
+* Fixed rare crash when encoding JSON.
+* Fixed mods not loading.
+* Optimized mod loading.
+* Fixed CFN fonts being incorrectly decoded on Windows.
+
+## 0.17
+
+*June 23rd, 2025*
+
+* Improved implementation of certain renderer functions:
+  * OpenGL object names are now pregenerated when the renderer is initialized.
+    This should make creating and destroying engine-level texture, buffer etc.
+    objects faster.
+  * `Rect::draw()` (used by `render::rect()`) uses `Primitive::TriangleFan` and
+    no longer uses an EBO.
+  * Ditto for `render::plane()`.
+  * `render::line()` uses a specialized vertex shader and thus no longer
+    uses `atan2` or `sqrt`.
+* Changed how mouse cursors are handled:
+  * Renamed `<nwge/cursor.hpp>` to `<nwge/Cursor.hpp>`.
+  * `Cursor` enum was renamed to `CursorState`.
+    * `getCursor()` becomes `getCursorState()`, `setCursor()` becomes
+      `setCursorState()` etc.
+  * Added `CursorState::Custom`.
+  * Added `Cursor` object, which represents a custom cursor.
+  * Added `NWGE_MAX_CURSOR_OBJECT_COUNT` with a value of 8.
+  * Added support for parsing cursors in XCursor format.
+* Fixed a potential crash when an invalid object is created before GUI is
+  initialized.
+* Improved memory layout to reduce amount of small allocations when creating
+  certain objects.
+* Improved texture upload:
+  * If a texture is already in `RGBA32` format, it is no longer converted before
+    being uploaded to the GPU.
+  * This should improve texture loading performance.
+* Fixed mods using case-sensitive names on Linux.
+* Improved object pool implementation.
+  * The engine is now much less prone to crashing due to uninitialized objects.
+* Removed the ability to create duplicate console command objects.
+  * Creating two console command objects with the same name is now properly
+    detected, in which case only the first object will be valid.
+  * A warning will be issued to the engine journal about this.
+* Added a limit on how long command names can be (32 characters).
+* Rewritten `nwge::String` class.
+  * No longer a subclass of `nwge::Array`.
+  * Performs optimizations for small strings. In case a string is smaller than
+    the size of a pointer, then the string data is stored in place of the
+    pointer. This helps eliminate small allocations and slightly improves memory
+    usage.
+  * Better comments.
+  * Optimized `String::formatted()`.
+* Added `FauxObject`.
+* Fixed `operator ArrayView<const T>()` sometimes causing an ambiguous
+  constructor error.
+* Added a `data::FileView` constructor accepting a path.
+* Fixed `Schema` using non-const `ArrayView`s over array elements.
+* Updated config loading code to use file mapping instead of reading the config
+  file into memory manually.
+* Replaced `json::Value` with a more optimal implementation.
+  * More compact memory layout:
+    * 3 bits for type
+    * 61 bits for an element count (for strings, arrays, objects)
+    * either f64 (for numbers) or pointer to data (for string, arrays, objects)
+  * This removes a double indirection previously present in the implementation
+    (for arrays, `Value` used a pointer to a heap-allocated `Array`, which in
+    turn contained its own pointer to the actual heap-allocated data)
+  * More consistent handling of copying & moving (moved objects turn into
+    `null`)
+  * Default constructed values are `null`, and the `nullptr_t` constructor has
+    been removed.
+* Removed `VertexBuffer::draw`, `render::shape` and `render::put` functions
+  accepting a `VertexBuffer`.
+* Added `Journal` to `e.memory`.
+* Fixed some issues with lengthy journal entries.
+  * Entries can now have theoretically infinitely long messages and
+    descriptions.
+  * Increased the length limit of entries when saving to disk to 1024 (from
+    496).
+* Added support for `libsndfile`.
+  * If `libsndfile` is installed on your system, nwge will be able to use it to
+    load many more audio formats.
+  * Without `libsndfile` nwge can only load WAVs and MP3s.
+  * You can simply bundle a `libsndfile` DLL with your game, nwge will handle
+    the rest.
+  * If you do not intend to use this extra functionality, it is completely
+    optional.
+* Added the "Memory Stats" engine GUI window, which shows the same information
+  as the `e.memory` console command except in real-time.
+* Added `ArrayView` methods:
+  * `equals()` and `operator==()`
+  * `find()`, `reverseFind()` and `contains()`
+* Removed `StringView::equals`, `StringView::find` and `StringView::reverseFind`
+  in favor of `ArrayView::equals`, `ArrayView::find` and
+  `ArrayView::reverseFind` respectively.
+* Fixed bundle tree validation returning errors on valid bundles.
+* Fixed 3D camera calculations.
+* Optimized bundle tree search.
+* Fixed OBJ parser crash when mesh doesn't have texture coordinates.
+* Increased camera far Z to 250.
+* Added `String` methods:
+  * `concat()`, `operator+()`, `operator+=()`
+  * `equals()`, `operator==()`
+* Added automatic uniform: `in_InvModelMatrix`, the inverse of the model matrix.
+* Added support for per-character coloring of text.
+  * To take advantage of this, use a `Cursor`.
+  * Between adding text to the Cursor (via `operator<<`), simply call
+    `render::color()` to change the color of the characters being added.
+  * Example:
+    ```c++
+    auto cursor = myFont.cursor(textAnchor, textHeight);
+    render::color();
+    cursor << "This text will be white. ";
+    render::color({0, 0, 0});
+    cursor << "But this will be black.\n";
+    cursor.draw();
+    ```
+* Removed the `KeyDown` and `KeyUp` events.
+* Changed how the bundle library and the NwgeCFN library are loaded.
+  * These two libraries are now loaded at run-time, as the engine is
+    initializing.
+  * In case either is missing, the user will be met with a much nicer message
+    explaining that a needed library is missing. Otherwise, we rely on the
+    operating system relaying that information to the user, which can be quite
+    cryptic (see: Linux).
+* Added `ArrayView::constBytes()` and removed the const-qualified overload of
+  `ArrayView::bytes()`.
+* Removed support for SDL2_image.
+  * Below are listed some other, optional libraries you can use instead.
+  * Nwge will automatically load supported libraries and use them.
+  * If none of the optional libraries are found, nwge has built-in fallbacks
+    that should provide a good enough set of functionality.
+  * This way, you can only ship the libraries you intend on using. For example,
+    if you only intend to use PNG & JPEG, then there's no need to use any
+    library as nwge has built-in support for the two.
+* Added support for FreeImage.
+  * This is an optional library. If you bundle it with your app, nwge will
+    automatically load it and use it to load `Texture`s.
+  * Loading `AnimatedTexture`s is not supported.
+  * If not present, `stb_image` is used as a fallback.
+  * `stb_image` is only compiled with support for PNG and JPEG.
+* Added support for `libwebp`.
+  * This is an optional library. If you bundle it with your app nwge will
+    automatically load it and use it to load `Texture`s and `AnimatedTexture`s.
+  * Unlike FreeImage, `libwebp` can be used to load animated WebPs as
+    `AnimatedTexture`s.
+* Added support for `libvorbisfile`.
+  * This is an optional library. If you bundle it with you app nwge will
+    automatically load it and use it to load `Sound`s (and by extension
+    `Buffer`s) from Ogg files using the Vorbis codec.
+  * Ogg files with other codecs can be loaded with `libsndfile` instead.
+* Added support for `libFLAC`.
+  * This is an optional library. If you bundle it with you app nwge will
+    automatically load it and use it to load `Sound`s (any by extension
+    `Buffer`s) from FLAC files and Ogg files using the FLAC codec.
+* Added ability to query availability of optional features.
+  * In `<nwge/common/feature.h>`, use `nwgeQueryFeature()`.
+  * Can be used to throw errors if a library you expect to be present isn't
+    available. (In case of a corrupt installation or the user meddling with
+    your app's files, for example)
+* Removed `Camera::front()` and `Camera::right()`.
+* Added `near` and `far` to `CameraSettings`.
+* Changed NwgeCFN font generation.
+  * Now uses `SDL_ttf` again.
+  * Font generation is an optional feature, only available if the `SDL_ttf`
+    library is installed on your system.
+  * That means the `nwge_cfn` library can be shipped without any reliance on
+    `SDL_ttf` being present to function whilst still using its font generation
+    capabilities when installed.
+* Added `cfnGenerationAvailable()` function to `libnwge_cfn`.
+* Added `audio::Buffer` methods:
+  * `sampleRate()` and `sampleCount()`
+  * Utility `duration()` method that calculates the duration of the buffer's
+    audio using the sample rate and sample count.
+* Updated CFN format with improved bitmap compression.
+  * `cfn.h`: Renamed `CFN_FLAG_RLE` to `CFN_FLAG_COMPRESSED`.
+  * `cfn.h`: Removed `CFN_FLAG_RLE2`.
+  * `nwgecfn` tool: Renamed `-no-rle` to `-no-compression`.
+  * `nwgecfn` tool: Removed `-old-rle`.
+* Fixed an issue where uploading new data to a VBO or EBO after it was added to
+  a VAO would cause the vertex/element count used for rendering to
+  de-synchronize.
+* Fixed a crash when loading an OBJ file without normals.
+* Added `render::mat::pushTransform()`.
+
+## 0.16
+
+**February 12th, 2025**
+
+* Moved `json::Value` and related definitions to `<nwge/json/Value.hpp>`.
+* Added key hashes to `json::Object`.
+  * This brings the implementation of `json::Object` and `Table` closer.
+  * `json::Object` cannot be `typedef`ed to `Table` since `json::Object` is
+    implicitly convertible to `json::Value`, whereas `Table` isn't.
+* Fixed engine crashing on loads that shouldn't crash.
+* Added `SubState::Options::subTimeScale`.
+* Replaced implementation of `Date::today()` and `Time::now()` with an inline
+  one using `<chrono>`.
+* Added `render::Texture::loaded()`.
+* Added `MoveH` and `MoveV` to `nwge::Cursor`.
+* Added `render::Cursor::defaultFont()`.
+* Added `nwge::KeyBind::keyName()`.
+* Fixed app name not being displayed correctly when checking which programs are
+  inhibiting screen saver.
+  * Some Linux desktops list applications that are preventing the screen from
+    being locked (KDE's Power Management applet, for example).
+  * This would previously display "My SDL application".
+  * It now correctly shows the name of your app.
+* Fixed how UTF-8 codepoints are handled in `Path::sanitize()`.
+* Added `<nwge/data/FileView.hpp>` header, containing `FileView`.
+* Moved `json::parse()` into `<nwge/json/parse.hpp>`.
+* Added `json::parse()` overload accepting a `data::RW` to parse files as JSON
+  directly.
+  * This uses `FileView` internally.
+* Added `json::Error` structure, which wraps a `json::ErrorID` providing utility
+  operator overloads for more concise code.
+* Moved `render::clear()` into `<nwge/render/draw.hpp>`.
+* Added State and SubState labels.
+  * `State` and `SubState` constructors now accepts an optional StringView to
+    use as a label in engine journal and in renderer debug messages.
+  * Added `State::label()` and `SubState::label()` to retrieve the
+    aforementioned label.
+* Removed SubState Stack section from State options temporarily.
+* Increased scratch-space allocation history size.
+  * You can now make many more scratch-space allocations before it will return
+    to the beginning of the memory arena.
+* Added support for on-disk shader caching.
+  * Requires the `GL_ARB_get_program_binary` extension.
+  * Currently, only built-in shader programs are cached.
+  * You can view the currently cached shaders in:
+    * `$XDG_CACHE_HOME/nwge/shader-cache` (most likely
+      `~/.cache/nwge/shader-cache`) on Linux
+    * `%APPDATA%\nwge\shader-cache` on Windows
+  * Check the engine journal to see the shader cache in action.
+* Added `memCopy()` and `memMove()` for `ArrayView`s.
+* Added `Path::empty()`.
+* Refactored path iteration functionality:
+  * Removed `Path::Iterator` and moved it into a separate struct,
+    `PathIterator`.
+  * `PathIterator` can be constructed directly, `Path::iterate()` is just a
+    shorthand for `PathIterator(const Path&)`.
+  * `PathIterator` skips over directories and hidden files by default.
+  * Added `PathIterator::includeDirs()`, `PathIterator::includeHidden()` and
+    `PathIterator::onlyDirs()`.
+* Fixed `render::square()` incorrect textures.
+* Fixed a crash when calling `Path::ext()` with an empty `StringView`.
+* Fixed `SubState`s not being de-allocated if they couldn't be pushed onto the
+  sub-state stack.
+* Improved RLE format for NwgeCFN fonts. (via `CFN_FLAG_RLE2` flag)
+* Added support for automatically-updated uniforms for custom shader programs.
+  * For example, if your shader program has a uniform named `in_Tint`, that
+    uniform will be updated with the color last set by the `render::color()`
+    function so you can tint your shader output correctly.
+  * This is handled transparently by the engine.
+  * The following uniforms are currently supported:
+    * `vec4 in_Tint`: color set by `render::color()`.
+    * `mat4 in_Transform`, `mat4 in_ModelMatrix`: obtained from the matrix
+      stack, manipulated with functions from the `render::mat` namespace.
+    * `mat4 in_ProjMatrix`: projection matrix of the current 3D camera.
+    * `mat4 in_ViewMatrix`: view matrix of the current 3D camera.
+    * `float in_Time`: time since engine initialization.
+* Renamed `Mesh::draw()` to `Mesh::draw3D()`.
+* Added `Mesh::draw2D()` and `Mesh::draw()`.
+* Moved `Mesh::bind()` to private, as it's only used internally.
+* Replaced the scratch-space implementation with `qmlScratch`
+  (https://github.com/qeaml/scratch)
+  * Additionally, the memory is now stored in a dedicated memory page rather
+    than being stored alongside all other engine state. This will make the
+    scratch-space more resistant to memory corruption, buffer overruns etc.
+* Removed `nwgeScratchQuery()`.
+* Updated output of `e.scratch`.
+* Fixed memory leaks when changing state.
+* Fixed memory leaks when shutting down the engine
+* Added `e.memory` console command.
+* Removed `e.alloc` and `e.scratch` console commands, being replaced with
+  `e.memory`.
+* Added `VertexArray::defaultVertexLayout`.
+* Changed default `CullMode` to `CounterClockwise`, as per most other 3D
+  applications.
+  * The engine will no longer reorder triangles in STL files.
+* (Linux-only) Added invalid memory access diagnosis.
+  * Whenever a SIGSEGV is caught, the engine will examine the address that
+    caused it and display a likely cause of the error.
+  * For example, there are guard pages set up around the engine scratch-space.
+    If one was to write to these guard pages the kernel will generate a
+    segmentation fault. The engine can detect that the faulty address is in one
+    of the guard pages and thus suggest the error may be a scratch-space buffer
+    overrun.
+  * Because Windows does not provide `sigaction()`, this is only available on
+    Linux. To examine the address of a segmentation fault on Windows, you must
+    use a debugger. (at which point you can examine the code to find out what
+    went wrong)
+
 ## 0.15
 
-**December 22nd, 2024**
+*December 22nd, 2024*
 
 * Fixed `nwgebndl extract` file name filter.
 * Added `CodepointIterator`.
@@ -66,7 +415,7 @@ engine. Each version is also accompanied by the date on which it was released.
 
 ## 0.14
 
-**October 14th, 2024**
+*October 14th, 2024*
 
 * Changed how engine GUIs are handled internally. This changes how some
   engine-level key bindings behave:
@@ -191,7 +540,7 @@ engine. Each version is also accompanied by the date on which it was released.
 
 ## 0.13
 
-**August 11th, 2024**
+*August 11th, 2024*
 
 * Added new `StringView` methods:
   * `trimPrefix()` & `trimSuffix()`
@@ -266,7 +615,7 @@ engine. Each version is also accompanied by the date on which it was released.
 
 ## 0.12
 
-**July 13th, 2024**
+*July 13th, 2024*
 
 * Added `NWGE_UNREACHABLE` and `nwgeUnreachable(...)`
 * Moved `console::Callback` into `console::Command`
@@ -289,7 +638,7 @@ engine. Each version is also accompanied by the date on which it was released.
 
 ## 0.11
 
-**June 8th, 2024**
+*June 8th, 2024*
 
 * Added open/save file dialogs. (`nwge::dialog::FilePicker`)
 * Added folder picker dialogs. (`nwge::dialog::pickDirectory`)
