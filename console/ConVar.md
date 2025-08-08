@@ -50,5 +50,4 @@ bool tick(f32 delta) {
 * [Command](Command)
 * [Console variable][vdc-console-variable] on the Valve Developer Community
 
-[vdc-console-variable]:
-    https://developer.valvesoftware.com/wiki/Console_variable
+[vdc-console-variable]: https://developer.valvesoftware.com/wiki/Console_variable
