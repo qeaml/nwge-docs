@@ -64,10 +64,10 @@ Toolbar and in graphics debuggers such as [RenderDoc].
 
 ### `bool on(nwge::Event&)`
 
-Called to handle events. This method is called for each sub-state that has
-`receiveEvents` set to `true`. It is called in forward order, meaning that it is
-called for the state on the top of the stack first and then going down the stack
-and eventually at the main state. If any sub-state on the stack has
+Called to handle [event](Event)s. This method is called for each sub-state that
+has `receiveEvents` set to `true`. It is called in forward order, meaning that
+it is called for the state on the top of the stack first and then going down the
+stack and eventually at the main state. If any sub-state on the stack has
 `propagateEvents` set to `false`, then it'll be the last state to receive the
 event. If this method returns `false`, the event is not sent to states below
 this one in the stack and the game will close.

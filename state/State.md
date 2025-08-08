@@ -50,9 +50,10 @@ not return `false`).
 
 ### `bool on(nwge::Event&)`
 
-The `on()` method is called to handle events in the state. This includes events
-such as mouse movements, mouse clicks, background loads finishing and others. It
-is recommended to use key bindings to handle keyboard input.
+The `on()` method is called to handle [event](Event)s in the state. This
+includes events such as mouse movements, mouse clicks, background loads
+finishing and others. It is recommended to use key bindings to handle keyboard
+input.
 
 This method should return `true` on success. If `false` is returned, the game
 will close.
