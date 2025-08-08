@@ -137,6 +137,9 @@ FISHCLOWN.OBJ  FISHGAY.PNG   FISHLESBIAN.PNG  FISH.PNG         FISHSKELETON.OBJ 
 FISHCLOWN.PNG  FISHHALO.OBJ  FISH.OBJ         FISHRAINBOW.PNG  FISHSKELETON.PNG
 ```
 
+**Note:** The command uses [regular expressions][wikipedia-regex], not [glob
+patterns][wikipedia-glob].
+
 ## File
 
 The file is effectively split up into 3 parts:
@@ -331,3 +334,6 @@ void writingBundleFiles(SDL_RWops *bundleRW) {
 
 * [Mod](Mod)
 * [Store](Store)
+
+[wikipedia-regex]: https://en.wikipedia.org/wiki/Regular_expression
+[wikipedia-glob]: https://en.wikipedia.org/wiki/Glob_(programming)
