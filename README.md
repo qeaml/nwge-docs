@@ -6,13 +6,17 @@ good start.
 You can also read more on the following topics:
 
 * [Engine Object](EngineObject)
-* [Bundle](data/Bundle)
-* [Store](data/Store)
+* Data System
+    - [Bundle](data/Bundle)
+    - [Store](data/Store)
+* Render System
+    - [Image](render/Image)
+    - [Texture](render/Texture)
 * [Apps using nwge](APPS)
 * [Configuration](CONFIG)
 * [Console](CONSOLE)
 * [Engine Changelog](ENGINECHANGELOG)
-* [Data System](DATA)
+* [Data System](DATA) (old)
 * [Engine Initialization](INIT)
 * [Engine Journal](JOURNAL)
 * [`libnwge_cfn`](libnwge_cfn)
@@ -20,5 +24,5 @@ You can also read more on the following topics:
 * [Memory Allocation](MEMORY)
 * [`nwgecfn` (the CLI tool)](nwgecfn)
 * [Optional Libraries](OptLibs)
-* [Nwge & Shaders](SHADER)
-* [Fonts & Text Rendering](Text)
+* [Nwge & Shaders](SHADER) (old)
+* [Fonts & Text Rendering](Text) (old)

@@ -18,7 +18,7 @@ Type Byte | Purpose
 `0x04`    | Data system [Bundle](data/Bundle) objects.
 `0x05`    | KeyBind objects.
 `0x06`    | Console Command objects.
-`0x07`    | Renderer Texture objects.
+`0x07`    | Renderer [Texture](render/Texture) objects.
 `0x08`    | Renderer Shader objects.
 `0x09`    | Renderer ShaderProgram objects.
 `0x0A`    | Renderer Buffer objects.
