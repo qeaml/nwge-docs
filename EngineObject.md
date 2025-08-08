@@ -16,7 +16,7 @@ Type Byte | Purpose
 `0x02`    | Renderer Font objects.
 `0x03`    | Data system [Store](data/Store) objects.
 `0x04`    | Data system [Bundle](data/Bundle) objects.
-`0x05`    | KeyBind objects.
+`0x05`    | [KeyBind](state/KeyBind) objects.
 `0x06`    | Console [Command](console/Command) objects.
 `0x07`    | Renderer [Texture](render/Texture) objects.
 `0x08`    | Renderer Shader objects.

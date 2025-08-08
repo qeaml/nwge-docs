@@ -4,7 +4,7 @@ A [console](Console) **Command** executes some given action when being input
 into the engine console. Your game may register its own console commands using a
 Command [engine object](../EngineObject).
 
-## Engine object
+## Engine Object
 
 You must initialize a command engine object with a name and a callback. When the
 user enters the command in the console, the callback is invoked with the
