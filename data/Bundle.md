@@ -32,8 +32,7 @@ When a bundle is loaded into a bundle object, its file tree is internally
 replicated as a `Table` for faster lookups and each individual file's contents
 are loaded into memory to improve load times.
 
-The user may overwrite files in your game's bundles via mods. *TODO: Link to a
-page on mods.*
+The user may overwrite files in your game's bundles via [mod](Mod)s.
 
 You can see a list of bundle engine objects with the `d.bundleList` console
 command.
@@ -330,4 +329,5 @@ void writingBundleFiles(SDL_RWops *bundleRW) {
 
 ## See Also
 
+* [Mod](Mod)
 * [Store](Store)
