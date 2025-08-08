@@ -2,7 +2,7 @@
 
 A **console variable** (shortened to ConVar) is a console command that allows
 the user to view and change a certain value. These are analogous to ConVars from
-the Quake and its descendants (such as GoldSrc or Source). ConVars are
+the Quake engine and its descendants (such as GoldSrc or Source). ConVars are
 implemented as a wrapper around a [console command](Command).
 
 ## Usage
