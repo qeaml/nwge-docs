@@ -20,6 +20,7 @@ You can also read more on the following topics:
     - [Texture](render/Texture)
 * [Console](console/Console)
     - [Command](console/Command)
+    - [ConVar](console/ConVar)
 * [Apps using nwge](APPS)
 * [Configuration](CONFIG)
 * [Engine Changelog](ENGINECHANGELOG)

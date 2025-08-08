@@ -33,3 +33,4 @@ header. Command engine objects use object IDs with type `6`.
 ## See Also
 
 * [Console](Console)
+* [ConVar](ConVar)
