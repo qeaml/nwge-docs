@@ -27,7 +27,7 @@ Stores are located within the root store directory.
   used instead.
 
 Then, your game will have its own subdirectory within the root store directory.
-For example, Minifish on Windows will use the `%APPDATA%\nwge\store\Minifish`
+For example, [Minifish] on Windows will use the `%APPDATA%\nwge\store\Minifish`
 directory.
 
 Unnamed stores will use the game's directory to store files. Named stores will
@@ -58,3 +58,5 @@ struct SaveData {
 ## See Also
 
 * [Bundle](Bundle)
+
+[Minifish]: https://qeaml.itch.io/minifish

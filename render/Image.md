@@ -13,3 +13,7 @@ present, WebP files can be loaded too.
 The `nwge::render::Image` class and the utility `nwge::render::RGB` and
 `nwge::render::RGBA` structures are defined in the `<nwge/render/Image.hpp>`
 header.
+
+## See Also
+
+* [Texture](Texture)

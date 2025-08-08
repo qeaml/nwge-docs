@@ -35,6 +35,9 @@ are loaded into memory to improve load times.
 The user may overwrite files in your game's bundles via mods. *TODO: Link to a
 page on mods.*
 
+You can see a list of bundle engine objects with the `d.bundleList` console
+command.
+
 The `nwge::data::Bundle` class is defined in the `<nwge/data/bundle.hpp>`
 header. Bundle engine objects use object IDs with type `4`.
 
