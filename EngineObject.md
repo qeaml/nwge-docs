@@ -27,6 +27,7 @@ Type Byte | Purpose
 `0x0D`    | Renderer Camera objects.
 `0x0E`    | Audio system Buffer objects.
 `0x0F`    | Audio system Source objects.
+`0x10`    | Mouse Cursor objects.
 
 ## Object Pool
 
