@@ -42,7 +42,7 @@ method or upload an [Image](Image) with the `replace()` method.
 Note that loading textures uses Image objects internally. Any image you can load
 into an Image object can also be uploaded to a Texture.
 
-The `nwge::render::Texture` class is defined in the `<nwge/render/texture.hpp>`
+The `nwge::render::Texture` class is defined in the `<nwge/render/Texture.hpp>`
 header. Texture engine objects use object IDs with type `7`.
 
 [gl-wiki-texture]: https://www.khronos.org/opengl/wiki/Texture

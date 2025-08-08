@@ -12,9 +12,11 @@ You can also read more on the following topics:
 * Render System
     - [Image](render/Image)
     - [Texture](render/Texture)
+* [Console](console/Console)
+    - [Command](console/Command)
 * [Apps using nwge](APPS)
 * [Configuration](CONFIG)
-* [Console](CONSOLE)
+* [Console](CONSOLE) (old)
 * [Engine Changelog](ENGINECHANGELOG)
 * [Data System](DATA) (old)
 * [Engine Initialization](INIT)
