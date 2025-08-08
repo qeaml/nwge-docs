@@ -45,6 +45,47 @@ into an Image object can also be uploaded to a Texture.
 The `nwge::render::Texture` class is defined in the `<nwge/render/Texture.hpp>`
 header. Texture engine objects use object IDs with type `7`.
 
+## Console Commands
+
+To view a list of textures, use `r.textureList`:
+
+```console
+> r.textureList
+Currently loaded textures:
+  - Texture 07000000: future.bndl; testcardRGBA.png
+      Size: 256x256
+      Color channels: 4
+  - Texture 07000001: future.bndl; testcardRGBA.qoi
+      Size: 256x256
+      Color channels: 4
+```
+
+To disable or enable textures, use `r.textures`:
+
+```console
+> r.textures
+Textures: Enabled
+> r.textures d
+Textures disabled
+> r.textures
+Textures: Disabled
+> r.textures e
+Textures enabled
+```
+
+To disable or enable texture filtering, use `r.filterTextures`:
+
+```console
+> r.filterTextures
+Texture filtering is disabled
+> r.filterTextures e
+Enabled texture filtering
+> r.filterTextures
+Texture filtering is enabled
+> r.filterTextures d
+Disabled texture filtering
+```
+
 ## See Also
 
 * [Texture][gl-wiki-texture] on the OpenGL Wiki
