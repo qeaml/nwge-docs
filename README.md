@@ -22,7 +22,6 @@ You can also read more on the following topics:
     - [Command](console/Command)
 * [Apps using nwge](APPS)
 * [Configuration](CONFIG)
-* [Console](CONSOLE) (old)
 * [Engine Changelog](ENGINECHANGELOG)
 * [Data System](DATA) (old)
 * [Engine Initialization](INIT)
