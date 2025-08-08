@@ -94,10 +94,13 @@ options are explained above. Whenever you want to make any change to the stack,
 that change is added to an operation queue. Operations from this queue are
 executed once the current frame has fully finished. Popping a sub-state from the
 stack or pushing a sub-state onto the stack will not update the stack until the
-next frame. This is done to ensure that sub-states are only destroyed once they
-are no longer present on the sub-state stack.
+next frame. This ensures consistency between how the main state is handled and
+how sub-states are handled. This also ensures that sub-states are only destroyed
+once they are no longer present on the sub-state stack.
 
-When the main state changes, the sub-state stack is immediately cleared.
+When the main state changes, the sub-state stack is immediately cleared. The
+operation queue is not cleared and all operations within will be executed once
+the main state has been initialized.
 
 ## API
 
@@ -111,7 +114,7 @@ You can enqueue a sub-state to be pushed onto the stack with the
 
 You can enqueue the topmost sub-state to be swapped with a different one using
 the `nwge::swapSubState` and `nwge::swapSubStatePtr` functions. In case the
-stack is empty, these function is equivalent to `nwge::pushState` and
+stack is empty, these function are equivalent to `nwge::pushSubState` and
 `nwge::pushSubStatePtr` respectively.
 
 You can enqueue the topmost sub-state to be popped off the stack with the
