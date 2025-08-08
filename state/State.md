@@ -5,8 +5,8 @@ Although you can create as many State objects as you wish, only one of them can
 be the current state of the game. This state is referred to as the **main
 state**.
 
-**Sub-states** are smaller, less complicated states that run on top of the main
-state. *TODO: Separate page for Sub-States*
+**[Sub-state](SubState)s** are smaller, less complicated states that run on top
+of the main state.
 
 ## Lifetime
 
